@@ -1,0 +1,116 @@
+/*
+  Fonts
+*/
+
+@font-face {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://mozilla.org/media/fonts/FiraSans-Regular.eot?#iefix') format('embedded-opentype'),
+       url('https://mozilla.org/media/fonts/FiraSans-Regular.woff') format('woff'),
+       url('https://mozilla.org/media/fonts/FiraSans-Regular.ttf') format('truetype');
+}
+
+
+/*
+  Base
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    backgroud-color: #eee;
+    color: black;
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'Fira Sans';
+}
+
+a {
+    color: #0098D8;
+}
+
+.sidebar {
+    text-align: center;
+    height: 100%;
+    position: fixed;
+    background-color: #0098D8;
+    z-index: 99;
+    font-size: 1.2em;
+}
+
+.logo {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.logo-img {
+    margin: auto;
+}
+
+.foxie {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+}
+
+.nav-pills > li > a {
+    color: white;
+}
+
+.nav-pills > li > a:hover,
+.nav-pills > li > a:focus {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.active {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 30px;
+    min-height: 100%;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.page {
+    min-height: 500px;
+}
+
+footer {
+    background-color: #57585D;
+    color: white;
+    height: 210px;
+    padding: 40px 0px;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+footer > .row {
+    width: 1150px;
+    margin: 0px auto;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width:992px) {
+    .container {
+        margin-top: 0px;
+    }
+
+    footer {
+        height: 230px;
+    }
+}
