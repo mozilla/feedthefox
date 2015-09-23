@@ -34,6 +34,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 INSTALLED_APPS = [
     # Project specific apps
     'feedthefox.base',
+    'feedthefox.users',
 
     # Third party apps
     'django_jinja',
