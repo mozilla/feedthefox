@@ -6,9 +6,9 @@
     font-family: 'Fira Sans';
     font-style: normal;
     font-weight: 400;
-    src: url('https://mozilla.org/media/fonts/FiraSans-Regular.eot?#iefix') format('embedded-opentype'),
-       url('https://mozilla.org/media/fonts/FiraSans-Regular.woff') format('woff'),
-       url('https://mozilla.org/media/fonts/FiraSans-Regular.ttf') format('truetype');
+    src: url('/static/fonts/FiraSans-Regular.eot') format('embedded-opentype'),
+         url('/static/fonts/FiraSans-Regular.woff') format('woff'),
+         url('/static/fonts/FiraSans-Regular.ttf') format('truetype');
 }
 
 
