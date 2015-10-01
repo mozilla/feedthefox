@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     # Project specific apps
     'feedthefox.base',
     'feedthefox.users',
+    'feedthefox.dashboard',
 
     # Third party apps
     'django_jinja',
