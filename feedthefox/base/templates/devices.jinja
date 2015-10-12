@@ -1,0 +1,64 @@
+{% extends "base.jinja" %}
+
+{% block title%} - Devices{% endblock %}
+
+{% block main %}
+  <div class="container content">
+
+    <h3>Smartphones</h3>
+
+    <div class="row">
+      <div class="col-md-4">
+        <a href="{{ url('device') }}" class="device-list">
+          <div>
+
+          </div>
+          <div>
+            <p><strong></strong></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-lg btn-default" id="device-not">Don't see your device here?</button>
+      </div>
+    </div>
+
+    <div class="row device-not-options">
+      <div class="col-md-4 text-center">
+        <a href="https://developer.mozilla.org/docs/Tools/Firefox_OS_Simulator_clone" class="device-not-option" target="_blank">
+          <div>
+            <img src="{{ static('img/device-not-simulator.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Test Simulator
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center">
+        <a href="https://developer.mozilla.org/Firefox_OS/Developing_Firefox_OS/Porting" class="device-not-option" target="_blank">
+          <div>
+            <img src="{{ static('img/device-not-port.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Port Firefox OS
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4 text-center">
+        <a href="https://github.com/fabricedesre/b2gdroid" class="device-not-option" target="_blank">
+          <div>
+            <img src="{{ static('img/device-not-b2gdroid.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Try B2G Droid
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

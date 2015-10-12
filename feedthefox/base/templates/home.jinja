@@ -1,5 +1,25 @@
 {% extends "base.jinja" %}
 
 {% block main %}
+  <div class="clear jumbotron">
+    <div class="container">
+      <div class="row homescreen">
+        <div class="col-sm-6">
+          <div class="action">
+            <img src="{{ static('img/fxos-wordmark.svg') }}" class="img-responsive" alt="Firefox OS">
+          </div>
+          <div class="action">
+            <a href="{{ url('devices') }}" class="btn btn-success cta">Get it for your device</a>
+          </div>
+        </div>
+        <div class="col-sm-6 hidden-xs">
+          <img src="{{ static('img/homescreen.png') }}" class="img-responsive homescreen-img" alt="Firefox OS Homescreen">
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="container content">
+
+  </div>
 {% endblock %}

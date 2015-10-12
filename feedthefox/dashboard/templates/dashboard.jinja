@@ -1,49 +1,52 @@
 {% extends "base.jinja" %}
 
 {% block main %}
+  <div class="container content">
 
-  <h3>Dashboard</h3>
+    <h3>Dashboard</h3>
 
-  <div class="row">
-    <div class="col-md-7">
-      <form class="form-inline">
-          <input type="text" class="form-control" placeholder="Filter">
-      </form>
-    </div>
-    <div class="col-md-3">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default active">Features</button>
-        <button type="button" class="btn btn-default">Defects</button>
+    <div class="row">
+      <div class="col-md-7 col-xs-12">
+        <form class="form-inline">
+            <input type="text" class="form-control" placeholder="Filter">
+        </form>
+      </div>
+      <div class="col-md-3 col-xs-9">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default active">Features</button>
+          <button type="button" class="btn btn-default">Defects</button>
+        </div>
+      </div>
+      <div class="col-md-2 col-xs-3 report">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="reportmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu text-left" aria-labelledby="reportmenu">
+            <li><a href="#">Request Feature</a></li>
+            <li><a href="#">Report Defect</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="col-md-2 text-center">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="reportmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu text-left" aria-labelledby="reportmenu">
-          <li><a href="#">Request Feature</a></li>
-          <li><a href="#">Report Defect</a></li>
-        </ul>
-      </div>
-    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Bug</th>
+          <th>Summary</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Bug</th>
-        <th>Summary</th>
-        <th>Votes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 {% endblock %}
