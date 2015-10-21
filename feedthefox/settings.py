@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'feedthefox.base',
     'feedthefox.users',
     'feedthefox.dashboard',
+    'feedthefox.devices',
 
     # Third party apps
     'django_jinja',
@@ -98,6 +99,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
+USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', MEDIA_ROOT + '/uploads/profiles')
 
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=bool)
 
