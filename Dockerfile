@@ -10,7 +10,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Using PIL or Pillow? You probably want to uncomment next line
-# RUN apt-get update && apt-get install -y --no-install-recommends libjpeg8-dev
+RUN apt-get update && apt-get install -y --no-install-recommends libjpeg62-turbo-dev
 
 WORKDIR /app
 
