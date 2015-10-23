@@ -96,10 +96,6 @@ hr {
     background-color: #0C99D5;
 }
 
-.header-logo {
-
-}
-
 .fxfamilynav-logo {
     float: left;
     width: 140px;
@@ -309,6 +305,7 @@ a.device-list {
 
 a.device-list:hover {
     text-decoration: none;
+    border-radius: 4px;
     background-color: #ccc;
     transition: background 1s, color 1s;
 }
@@ -317,6 +314,9 @@ a.device-list:hover {
     padding: 10px;
 }
 
+.device-body > p {
+    margin-bottom: 20px;
+}
 .device-specs {
     color: #333;
     padding-left: 18px;
@@ -348,12 +348,45 @@ a.device-not-option {
     filter: grayscale(100%);
 }
 
-a.device-not-option:hover {
+a.device-not-option:hover,
+a.device-not-option:active,
+a.device-not-option:focus {
     text-decoration: none;
     filter: none;
     transition: filter 1s;
 }
 
+.mdn {
+    max-width: 40px;
+    display: inline-block;
+}
+
+.device-builds {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.device-builds > span {
+    float: left;
+    font-size: 2.5em;
+    margin-right: 7px;
+}
+
+.device-builds > img {
+    float: left;
+    margin-right: 7px;
+    max-width: 2.5em;
+}
+
+@media only screen and (max-width:992px) {
+    .device-doc {
+        min-width: 220px;
+    }
+
+    .device-builds {
+        max-width: 220px;
+    }
+}
 
 
 /* Profile/Settings
@@ -371,6 +404,7 @@ a.device-not-option:hover {
 .imei-tos {
     display: none;
 }
+
 
 /* Footer
 ==================== */
