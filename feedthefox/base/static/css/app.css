@@ -355,6 +355,23 @@ a.device-not-option:hover {
 }
 
 
+
+/* Profile/Settings
+==================== */
+
+.profile-details img {
+    padding-bottom: 20px;
+    margin: inherit;
+}
+
+.profile-imei {
+    cursor: help;
+}
+
+.imei-tos {
+    display: none;
+}
+
 /* Footer
 ==================== */
 

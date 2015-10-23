@@ -7,6 +7,8 @@ def home(request):
 
 def devices(request):
     return render(request, 'devices.jinja')
+def profile(request):
+    return render(request, 'profile.jinja')
 
 
 def device(request):
