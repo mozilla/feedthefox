@@ -11,3 +11,11 @@ def devices(request):
 
 def device(request):
     return render(request, 'device.jinja')
+
+
+def porting(request):
+    return render(request, 'porting.jinja')
+
+
+def b2gdroid(request):
+    return render(request, 'b2gdroid.jinja')

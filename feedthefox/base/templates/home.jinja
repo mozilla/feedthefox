@@ -1,6 +1,10 @@
 {% extends "base.jinja" %}
 
-{% block main %}
+{% block navbar_sticky %}{% endblock %}
+
+{% block navbar_wordmark %}{% endblock %}
+
+{% block masthead %}
   <div class="clear jumbotron">
     <div class="container">
       <div class="row homescreen">
@@ -9,7 +13,7 @@
             <img src="{{ static('img/fxos-wordmark.svg') }}" class="img-responsive" alt="Firefox OS">
           </div>
           <div class="action">
-            <a href="{{ url('devices') }}" class="btn btn-success cta">Get it for your device</a>
+            <a href="{{ url('devices') }}" class="btn btn-success cta">Hack it on your device</a>
           </div>
         </div>
         <div class="col-sm-6 hidden-xs">
@@ -18,8 +22,60 @@
       </div>
     </div>
   </div>
+{% endblock %}
 
-  <div class="container content">
+{% block main %}
+  <div class="container home-content">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>About</h2>
 
+        <p>
+          Welcome to the Firefox OS Participation Hub, your launchpad to
+          participate in the Firefox OS project
+        </p>
+
+        <p>
+          With the release of Firefox OS 2.5, you can now easily participate
+          in every aspect of building Mozilla’s mobile OS: hack it to match your
+          needs, provide feedback and ideas, contribute code and improve the
+          features that you value and care most about. Join a vibrant open source
+          community to help make Firefox OS a platform for innovation and unlock
+          the power of the web on mobile.
+        </p>
+
+        <p>
+          <a href="{{ url('devices') }}">Find out</a> how you can install
+          Firefox OS on your device and ways to get started.
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <h2>Contribute</h2>
+
+        <p>
+          <img src="{{ static('img/device-not-port.png') }}" class="home-ctas-img">
+          Our goal is to make Firefox OS available to as many people as possible.
+          That means enabling Firefox OS to run on existing hardware. If you’re
+          interested in learning new skills or if you are already adept at porting,
+          we’d love for you to get involved.
+        </p>
+
+        <div class="text-center home-ctas">
+          <a href="#" class="btn btn-default">Port Firefox OS</a>
+        </div>
+
+        <p>
+          <img src="{{ static('img/device-not-b2gdroid.png') }}" class="home-ctas-img">
+          B2GDroid is an Android launcher that replaces the core Android
+          homescreen experience with an alternate Firefox OS experience.
+        </p>
+
+        <div class="text-center home-ctas">
+          <a href="#" class="btn btn-default">Try B2G Droid</a>
+        </div>
+
+      </div>
+    </div>
   </div>
 {% endblock %}

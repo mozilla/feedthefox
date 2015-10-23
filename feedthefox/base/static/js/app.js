@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
     'use strict';
 
+    // Show contribution CTAs
     $('#device-not').click(function() {
         var target = $('.device-not-options');
         $(this).hide();

@@ -1,3 +1,15 @@
+/* Table of Contents
+ =====================
+* Fonts
+* Generic
+* Home
+* Devices
+* Profile/Settings
+* Dashboard
+* Footer
+*/
+
+
 /* Fonts
 ==================== */
 
@@ -46,7 +58,7 @@
 }
 
 
-/* Base
+/* Generic
 ==================== */
 
 html, body {
@@ -57,7 +69,7 @@ body {
     padding: 0;
     margin: 0;
     background-color: #eee;
-    color: #484848;
+    color: #666;
     font-size: 14px;
     line-height: 1.4;
     font-family: 'Open Sans', sans-serif;
@@ -69,6 +81,10 @@ body {
 }
 
 a {
+    color: #33b2eF;
+}
+
+a:hover {
     color: #43C2FF;
 }
 
@@ -80,30 +96,37 @@ hr {
     background-color: #0C99D5;
 }
 
+.header-logo {
+
+}
+
 .fxfamilynav-logo {
     float: left;
     width: 140px;
-    height: 146px;
+    height: 145px;
     margin: 5px 20px 0px 0px;
-    background-image: url('/static/img/fxos-sprite.png');
-    background-position: 0px 0px;
+    background-image: url('/static/img/firefox.png');
     text-indent: 120%;
     white-space: nowrap;
     overflow: hidden;
-    transition: transform 0.3s ease 0s;
 }
 
 .container {
     max-width: 960px;
 }
 
+header {
+    background-color: #0C99D5;
+    background-image: linear-gradient(to bottom, rgba(12, 153, 213, 0) 0px, rgba(12, 153, 213, 0) 100px, #0C99D5 550px, #0C99D5), repeating-linear-gradient(118deg, rgba(12, 153, 213, 0) 0px, #00A7E0 550px, rgba(12, 153, 213, 0) 550px, #00A7E0 800px, rgba(12, 153, 213, 0) 800px, #00A7E0 950px);
+}
+
 .navbar-default {
     height: 80px;
     margin-bottom: 0px;
-    position: fixed;
-    top: 0px;
-    z-index: 9999;
     width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
 }
 
 .navbar-brand {
@@ -114,38 +137,111 @@ hr {
 .navbar-toggle {
     margin-top: 15px;
     font-size: 1.1em;
-    background-color: #f8f8f8;
+    background-color: transparent;
 }
 
 .logo-wordmark {
     margin-top: 25px;
     font-size: 1.1em;
-    color: #333;
+    color: #eee;
     display: inline-block;
 }
 
-.page {
-    margin-top: 80px;
-    margin-bottom: 30px;
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
+    color: #eee;
 }
 
-.content {
-    padding-top: 80px;
+.navbar-default .navbar-nav > li > a:hover,
+.logo-wordmark:hover {
+    color: #fff;
+}
+
+.navbar-sticky {
+    position: fixed;
+    top: 0px;
+    z-index: 9999;
+    background-color: #0C99D5;
+}
+
+.navbar-sticky .fxfamilynav-logo {
+    width: 60px;
+    height: 62px;
+    margin: 5px 10px 0px 0px;
+    background-image: url('/static/img/firefox-s.png');
+}
+
+.page {
+    margin: 100px 0px 30px 0px;
+    clear: both;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+.img-responsive {
+    margin: auto;
+}
+
+@media only screen and (max-width:992px) {
+    .wrapper {
+        margin: 0 auto -250px;
+    }
+
+    .container {
+        margin-top: 0px;
+    }
+
+    .profile-word {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .wrapper {
+        margin: 0 auto -270px;
+    }
+
+    .logo-wordmark {
+        display: none;
+    }
+}
+
+
+/* Home
+==================== */
+
+.home-content {
+    margin-top: -70px;
+}
+
+.home-content h2 {
+    color: #0C99D5;
+    margin-top: 0px;
+}
+
+.home-content p {
+    padding: 10px 10px 0px 0px;
 }
 
 .jumbotron {
-    background-color: #0C99D5;
-    background-image: linear-gradient(to bottom, rgba(12, 153, 213, 0) 0px, rgba(12, 153, 213, 0) 100px, #0C99D5 450px, #0C99D5), repeating-linear-gradient(118deg, rgba(12, 153, 213, 0) 0px, #00A7E0 550px, rgba(12, 153, 213, 0) 550px, #00A7E0 800px, rgba(12, 153, 213, 0) 800px, #00A7E0 950px);
+    background-color: transparent;
+    border-color: none;
     text-align: center;
     color: #eee;
     max-height: 350px;
     overflow: hidden;
     margin: auto;
+    margin-top: 0px;
+    padding-top: 0px;
+    clear: both;
 }
 
 .homescreen {
     max-width: 960px;
-    margin: 40px auto;
+    margin: 20px auto;
 }
 
 .cta {
@@ -156,79 +252,31 @@ hr {
 }
 
 .action {
-    margin: 30px 30px 30px 10px;
+    margin: 20px 30px 30px 10px;
 }
 
 .homescreen-img {
     margin-top: -20px;
 }
 
-.logo {
-    width: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
 .logo-img {
     margin: auto;
 }
 
-.foxie {
-    width: 100%;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    position: absolute;
-    bottom: 10px;
+.home-ctas-img {
+    max-width: 100px;
+    float: left;
+    margin-right: 7px;
 }
 
-.active {
-    background-color: transparent;
-    font-weight: bold;
-}
-
-h3 {
-    margin-bottom: 20px;
-}
-
-.report {
-    text-align: center;
-}
-
-footer {
-    background-color: #57585D;
-    color: white;
-    height: 180px;
-    padding: 40px 0px;
-    width: 100%;
-    font-size: 0.9em;
-}
-
-footer > .row {
-    width: 1150px;
-    margin: 0px auto;
-}
-
-.footer-logo {
+.home-ctas {
+    clear: both;
     margin-bottom: 10px;
 }
 
-.push {
-    height: 180px;
-}
-
 @media only screen and (max-width:992px) {
-    .container {
-        margin-top: 0px;
-    }
-
-    .content {
-        padding-top: 20px;
-    }
-
     .homescreen {
-        margin: 0px auto;
+        margin: 20px auto;
     }
 
     .jumbotron {
@@ -238,19 +286,6 @@ footer > .row {
     .action {
         margin: 20px 0px;
     }
-
-    footer,
-    .push {
-        height: 230px;
-    }
-
-    .wrapper {
-        margin: 0 auto -230px;
-    }
-
-    .report {
-        text-align: right;
-    }
 }
 
 @media only screen and (max-width:460px) {
@@ -259,15 +294,6 @@ footer > .row {
         padding: 6px 8px;
         line-height: 1.2;
         border-radius: 5px;
-    }
-
-    footer,
-    .push {
-        height: 250px;
-    }
-
-    .wrapper {
-        margin: 0 auto -250px;
     }
 }
 
@@ -326,4 +352,48 @@ a.device-not-option:hover {
     text-decoration: none;
     filter: none;
     transition: filter 1s;
+}
+
+
+/* Footer
+==================== */
+
+footer {
+    background-color: #57585D;
+    color: white;
+    height: 180px;
+    padding: 40px 0px;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+footer > .row {
+    width: 1150px;
+    margin: 0px auto;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+.push {
+    height: 180px;
+}
+
+.footer-nav {
+    font-size: 1.1em;
+}
+
+@media only screen and (max-width:992px) {
+    footer,
+    .push {
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    footer,
+    .push {
+        height: 270px;
+    }
 }
