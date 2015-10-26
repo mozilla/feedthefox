@@ -417,6 +417,56 @@ a.device-not-option:focus {
 }
 
 
+/* Dashboard
+==================== */
+
+.report {
+    text-align: right;
+}
+
+.bug-list {
+    margin-top: 10px;
+}
+
+.popover {
+    max-width: 50%;
+}
+
+.loading {
+    margin: 50px 0px;
+    font-size: 1.2em;
+}
+
+#defects {
+    display: none;
+}
+
+.bug-list {
+    table-layout: fixed;
+}
+
+.bug-list td,
+.bug-list th {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.bug-summary {
+    cursor: pointer;
+}
+
+@media only screen and (max-width:992px) {
+    .table-bordered > thead > tr > th {
+        border-right: none;
+    }
+
+    .report {
+        text-align: right;
+    }
+}
+
+
 /* Footer
 ==================== */
 
