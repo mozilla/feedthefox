@@ -29,16 +29,27 @@ class Device(models.Model):
 
     model = models.CharField(max_length=120)
     manufacturer = models.CharField(max_length=120)
-    imei = models.CharField(max_length=17, blank=True, default='')
-    user = models.ForeignKey(User, related_name='devices',
-                             blank=True, null=True, on_delete=models.SET_NULL)
     image = models.ImageField(upload_to=_get_upload_file_name, blank=True, null=True)
     comment = models.TextField(blank=True, default='')
     builds = models.ManyToManyField(Build, blank=True)
+    users = models.ManyToManyField(User, related_name='devices',
+                                   through='DeviceInfo', blank=True)
 
     def __str__(self):
-        return '{0} {1}'.format(self.model, self.manufacturer)
+        return u'{0} {1}'.format(self.model, self.manufacturer)
 
     class Meta:
         ordering = ('manufacturer', 'model',)
         unique_together = ('manufacturer', 'model',)
+
+
+@python_2_unicode_compatible
+class DeviceInfo(models.Model):
+    """Device Info model."""
+
+    user = models.ForeignKey(User, related_name='devices_info')
+    device = models.ForeignKey(Device)
+    imei = models.CharField(max_length=17, blank=True, default='')
+
+    def __str__(self):
+        return u'{0} {1}'.format(self.user, self.device)
