@@ -1,0 +1,96 @@
+{% extends "base.jinja" %}
+
+{% block title%} - Devices{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+    <h3>Devices</h3>
+
+    <div class="row">
+      <div class="col-sm-3">
+        <form>
+          <div class="form-group">
+            <label>Manufacturer</label>
+            <select class="form-control" name="manufacturer">
+              <option value="0" selected>All</option>
+              <option value=""></option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select class="form-control" name="type">
+              <option value="0" selected>Smartphone</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-default">Filter</button>
+        </form>
+      </div>
+      <div class="col-sm-3">
+        <a href="{{ url('device') }}" class="device-list">
+          <div>
+            <img src="" class="img-responsive">
+          </div>
+          <div>
+            <p><strong></strong></p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-lg btn-default" id="device-not">Don't see your device here?</button>
+      </div>
+    </div>
+
+    <div class="row device-not-options">
+      <div class="col-sm-4 text-center">
+        <a href="{{ url('porting') }}" class="device-not-option">
+          <div>
+            <img src="{{ static('img/device-not-port.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Port Firefox OS
+          </div>
+          <div class="small text-muted">
+            That means enabling Firefox OS to run on existing hardware.
+            If you’re interested in learning new skills or if you are already
+            adept at porting, we’d love for you to get involved.
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4 text-center">
+        <a href="{{ url('gaia') }}" class="device-not-option">
+          <div>
+            <img src="{{ static('img/device-not-simulator.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Gaia Development
+          </div>
+          <div class="small text-muted">
+            The focal point of Firefox OS is the user experience, and that
+            experience is a collection of Web apps called Gaia. Gaia includes
+            the core system app that implements the window manager and system UI.
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-4 text-center">
+        <a href="{{ url('b2gdroid') }}" class="device-not-option">
+          <div>
+            <img src="{{ static('img/device-not-b2gdroid.png') }}" class="img-responsive device-not-img">
+          </div>
+          <div>
+            Try B2G Droid
+          </div>
+          <div class="small text-muted">
+            B2GDroid is an Android launcher that replaces the core Android
+            homescreen experience with an alternate Firefox OS experience.
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

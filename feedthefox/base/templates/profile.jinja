@@ -1,0 +1,114 @@
+{% extends "base.jinja" %}
+
+{% block title%} - Profile{% endblock %}
+
+{% block content %}
+  <div class="container">
+
+    <h3></h3>
+
+    <div class="row">
+      <div class="col-sm-3 profile-details">
+        <img src="{{ static('img/avatar.jpg') }}" alt="Full Name"
+             class="img-responsive img-circle">
+        <p>
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+          <a href="#" target="_blank"></a>
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+
+        </p>
+      </div>
+
+      <div class="col-sm-9">
+        <h4>FoxFooding</h4>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="4">Your devices</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+
+              </td>
+              <td class="profile-imei hidden-sm hidden-xs" title="Your IMEI number is visible only to you">
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+
+              </td>
+              <td>
+                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                FoxFooding not enabled
+              </td>
+              <td>
+                <a href="#" class="btn btn-danger btn-xs">Delete</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-default" data-toggle="modal" data-target="#DeviceModal">Add device</button>
+
+        <hr>
+
+        <h4>Privacy</h4>
+
+        <form>
+          <div class="form-group">
+            <input type="checkbox" name="privacy" value="1" checked>
+            I agree to receive regular emails (at least once a week) from
+            Mozilla’s Foxfooding Community Manager to provide updates on the
+            program and communicate new tasks.
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Device Modal -->
+  <div class="modal fade" id="DeviceModal" tabindex="-1" role="dialog" aria-labelledby="DeviceModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="DeviceModalLabel">Add device</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <select class="form-control" name="device">
+                <option value="0" selected>Select a device you own</option>
+                <option value=""></option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>IMEI</label>
+              <input id="imei-input" type="text" maxlength="15" class="form-control">
+            </div>
+            <div class="form-group imei-tos">
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ static('js/profile.js') }}"></script>
+{% endblock %}
