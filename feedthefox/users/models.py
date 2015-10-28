@@ -14,4 +14,4 @@ class User(AbstractUser):
     mozillians_url = models.URLField()
 
     def __str__(self):
-        return self.user.get_full_name()
+        return self.get_full_name()
