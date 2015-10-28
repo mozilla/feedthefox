@@ -3,7 +3,6 @@ import uuid
 
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.utils.encoding import python_2_unicode_compatible
 
 
@@ -32,7 +31,7 @@ class Device(models.Model):
     image = models.ImageField(upload_to=_get_upload_file_name, blank=True, null=True)
     comment = models.TextField(blank=True, default='')
     builds = models.ManyToManyField(Build, blank=True)
-    users = models.ManyToManyField(User, related_name='devices',
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='devices',
                                    through='DeviceInfo', blank=True)
 
     def __str__(self):
@@ -47,7 +46,7 @@ class Device(models.Model):
 class DeviceInfo(models.Model):
     """Device Info model."""
 
-    user = models.ForeignKey(User, related_name='devices_info')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='devices_info')
     device = models.ForeignKey(Device)
     imei = models.CharField(max_length=17, blank=True, default='')
 
