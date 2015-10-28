@@ -137,6 +137,9 @@ TEMPLATES = [
     },
 ]
 
+# Custom User model
+AUTH_USER_MODEL = 'users.User'
+
 # Mozillians.org API settings
 MOZILLIANS_API_URL = config('MOZILLIANS_API_URL', default=None)
 MOZILLIANS_API_KEY = config('MOZILLIANS_API_KEY', default=None)
