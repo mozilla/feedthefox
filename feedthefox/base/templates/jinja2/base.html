@@ -42,22 +42,32 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                       aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    <span class="profile-word">
-                      {% if request.user.is_authenticated() %}Profile{% else %}Connect{% endif %} </span>
+                    {% if request.user.is_authenticated() %}
+                      <i class="fa fa-user"></i>
+                      <span class="profile-word">Me</span>
+                    {% else %}
+                      <i class="fa fa-sign-in"></i>
+                      <span class="profile-word">Connect</span>
+                    {% endif %}
                   </a>
                   <ul class="dropdown-menu">
                     {% if request.user.is_authenticated() %}
-                      <li><a href="{{ url('profile') }}">Me</a></li>
-                      <li><a href="{{ url('account_logout') }}">Logout</a></li>
+                      <li><a href="{{ url('profile') }}"><i class="fa fa-eye"></i> Profile</a></li>
+                      <li><a href="{{ url('account_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     {% else %}
                       <li>
-                        <a href="{{ url('account_login') }}">Persona Login</a>
+                        <a href="javascript:allauth.persona.login('', 'login')"><i class="fa fa-user"></i> Persona</a>
                       </li>
                       <li>
-                        <a href="#">Github Login</a>
+                        <a href="#"><i class="fa fa-github"></i> Github</a>
                       </li>
                     {% endif %}
+                    <form id="_persona_login" method="post" action="{{ url('persona_login') }}">
+                      {% csrf_token %}
+                      <input type="hidden" name="next" value="" id="_persona_next_url"/>
+                      <input type="hidden" name="process" value="" id="_persona_process"/>
+                      <input type="hidden" name="assertion" id="_persona_assertion"/>
+                    </form>
                   </ul>
                 </li>
               </ul>
@@ -121,6 +131,8 @@
 
     <script src="{{ static('js/jquery-2.1.1.min.js') }}"></script>
     <script src="{{ static('js/bootstrap.min.js') }}"></script>
+    <script src="https://login.persona.org/include.js"></script>
+    <script src="{{ static('js/auth.js') }}"></script>
     <script src="{{ static('js/app.js') }}"></script>
     {% block js %}{% endblock %}
   </body>
