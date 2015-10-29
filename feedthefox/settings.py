@@ -124,7 +124,8 @@ TEMPLATES = [
         'BACKEND': 'django_jinja.backend.Jinja2',
         'APP_DIRS': True,
         'OPTIONS': {
-            'match_extension': '.jinja',
+            'match_extension': '.html',
+            'app_dirname': 'templates/jinja2',
             'newstyle_gettext': True,
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',

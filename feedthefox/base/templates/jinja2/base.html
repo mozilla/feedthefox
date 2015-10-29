@@ -38,10 +38,27 @@
               <ul class="nav navbar-nav">
                 <li><a href="{{ url('devices') }}">Devices</a></li>
                 <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
-                <li><a href="{{ url('profile') }}">
-                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                  <span class="profile-word">Connect</span>
-                </a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                      aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span class="profile-word">
+                      {% if request.user.is_authenticated() %}Profile{% else %}Connect{% endif %} </span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    {% if request.user.is_authenticated() %}
+                      <li><a href="{{ url('profile') }}">Me</a></li>
+                      <li><a href="{{ url('account_logout') }}">Logout</a></li>
+                    {% else %}
+                      <li>
+                        <a href="{{ url('account_login') }}">Persona Login</a>
+                      </li>
+                      <li>
+                        <a href="#">Github Login</a>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </li>
               </ul>
             </div>
 
@@ -57,6 +74,11 @@
 
       <div class="page">
         {% block content %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
         {% endblock %}
         <div class="push"></div>
       </div>
