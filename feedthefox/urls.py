@@ -11,5 +11,6 @@ urlpatterns = patterns(
     url(r'^devices/$', 'feedthefox.devices.views.devices', name='devices'),
     url(r'^device/$', 'feedthefox.devices.views.device', name='device'),
     url(r'^dashboard/$', 'feedthefox.dashboard.views.dashboard', name='dashboard'),
+    url('', include('feedthefox.users.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

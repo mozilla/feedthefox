@@ -104,5 +104,20 @@ Pygments==2.0.2
 
 # sha256: b0wujFraFwOf8cHji8Ub6pMXrzZ24oRmFIyN9fx48TI
 django-jinja==1.4.1
+
+# sha256: 67kjSmrxku6ahiO8lapstSNVdj0E_u2xmoiM2kC7NGY
+django-allauth==0.23.0
+
+# sha256: ksUcPs7IRsvsSu_xH5_0cwPUpj-TsOasDsAqCR_tcO8
+# sha256: wtEz5H4KdwXJJy7vANegnBdPW_F6En_tjixkmVVsx4I
+python-openid==2.2.5
+
+# sha256: 70v-RmPKO5eplYYMAXO5Z-vZgDPQLzjJ4bLLtsGR2a0
+oauthlib==1.0.3
+
+# sha256: IPl2zc4CpCtpzoDp4DiXpRgUs21EizcohUYIbrxHMUY
+# sha256: OYo9ttYYmdJf1KBsbKEgUbDOFx1wXezX7VURUXtLuT0
+requests==2.7.0
+
 # sha256: rVC-9UD-VRikZTw4IEUqiBtqBCyw-Lt2V8SRxr02VLs
 Pillow==3.0.0

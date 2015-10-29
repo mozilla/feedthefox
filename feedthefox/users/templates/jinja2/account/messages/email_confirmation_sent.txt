@@ -1,0 +1,1 @@
+{% trans %}Confirmation e-mail sent to {{email}}.{% endtrans %}

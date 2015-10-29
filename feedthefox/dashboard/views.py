@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 
 def dashboard(request):
-    return render(request, 'dashboard.jinja')
+    return render(request, 'dashboard.html')

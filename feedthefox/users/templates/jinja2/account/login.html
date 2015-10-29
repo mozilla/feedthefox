@@ -1,0 +1,36 @@
+{% extends "account/base.html" %}
+
+{% block title %}{{ _("Sign In") }}{% endblock %}
+
+{% block content %}
+<h1>{{ _("Sign In") }}</h1>
+
+{% set socialaccount_providers = get_providers() %}
+{% if socialaccount_providers %}
+  <p>
+    {% trans %}
+      Please sign in with one of your existing third party accounts.
+    {% endtrans %}
+  </p>
+
+  <div class="socialaccount_ballot">
+
+    <ul class="socialaccount_providers">
+      {% include "socialaccount/snippets/provider_list.html"  %}
+    </ul>
+
+  </div>
+
+  {% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+  <p>
+    {% trans %}
+      If you have not created an account yet, then please
+      <a href="{{ signup_url }}">sign up</a> first.
+    {% endtrans %}
+  </p>
+{% endif %}
+
+
+{% endblock %}

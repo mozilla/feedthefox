@@ -96,6 +96,10 @@ hr {
     background-color: #0C99D5;
 }
 
+.modal-dialog {
+    margin-top: 100px;
+}
+
 .fxfamilynav-logo {
     float: left;
     width: 140px;
@@ -152,6 +156,13 @@ header {
 .navbar-default .navbar-nav > li > a:hover,
 .logo-wordmark:hover {
     color: #fff;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: transparent;
 }
 
 .navbar-sticky {
