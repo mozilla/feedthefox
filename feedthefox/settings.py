@@ -49,13 +49,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django.contrib.flatpages'
+    'django.contrib.flatpages',
+
+    # Allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.persona'
 ]
 
 for app in config('EXTRA_APPS', default='', cast=Csv()):
     INSTALLED_APPS.append(app)
 
 SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,6 +115,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
 USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', MEDIA_ROOT + '/uploads/profiles')
+PERSONA_AUDIENCE = config('PERSONA_AUDIENCE', default='')
 
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=bool)
 
@@ -116,6 +127,14 @@ TEMPLATES = [
             'match_extension': '.jinja',
             'newstyle_gettext': True,
             'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
                 'feedthefox.base.context_processors.settings',
                 'feedthefox.base.context_processors.i18n',
             ],
@@ -133,6 +152,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request'
             ],
         }
     },
@@ -144,6 +164,37 @@ AUTH_USER_MODEL = 'users.User'
 # Mozillians.org API settings
 MOZILLIANS_API_URL = config('MOZILLIANS_API_URL', default=None)
 MOZILLIANS_API_KEY = config('MOZILLIANS_API_KEY', default=None)
+
+# Required by allauth
+SITE_ID = 1
+
+# Django-allauth configuration
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_ADAPTER = 'feedthefox.users.adapters.FeedTheFoxAdapter'
+ACCOUNT_UNIQUE_EMAIL = True
+
+SOCIALACCOUNT_ADAPTER = 'feedthefox.users.adapters.FeedTheFoxSocialAdapter'
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_EMAIL_REQUIRED = True
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_PROVIDERS = {
+    'persona': {
+        'AUDIENCE': PERSONA_AUDIENCE
+    }
+}
+
+PERSONA_VERIFIER_URL = 'https://verifier.login.persona.org/verify'
+PERSONA_INCLUDE_URL = 'https://login.persona.org/include.js'
+LOGIN_REDIRECT_URL = '/'
 
 # Django-CSP
 CSP_DEFAULT_SRC = (
@@ -163,12 +214,19 @@ CSP_IMG_SRC = (
     'http://*.mozilla.org',
     'https://*.mozilla.org',
 )
+CSP_FRAME_SRC = (
+    "'self'",
+    'https://login.persona.org',
+)
 CSP_SCRIPT_SRC = (
     "'self'",
+    # TODO: fix/replace this
+    "'unsafe-inline'",
     'http://*.mozilla.org',
     'https://*.mozilla.org',
     'http://*.mozilla.net',
     'https://*.mozilla.net',
+    'https://login.persona.org',
 )
 CSP_STYLE_SRC = (
     "'self'",
