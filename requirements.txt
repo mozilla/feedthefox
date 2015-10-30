@@ -106,3 +106,5 @@ Pygments==2.0.2
 django-jinja==1.4.1
 # sha256: rVC-9UD-VRikZTw4IEUqiBtqBCyw-Lt2V8SRxr02VLs
 Pillow==3.0.0
+# sha256: R_NHKksF6A24fEqYrFz2XLd8owE3uXB98SCzb3XUIWA
+opbeat==3.1.3
