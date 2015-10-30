@@ -1,5 +1,10 @@
 import requests
-from urlparse import urljoin, urlparse
+
+try:
+    from urllib.parse import urljoin, urlparse
+except ImportError:
+    # Python 2.7 compatibility
+    from urlparse import urljoin, urlparse
 
 
 class BadStatusCode(Exception):
