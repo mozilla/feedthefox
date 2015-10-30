@@ -237,3 +237,16 @@ CSP_STYLE_SRC = (
     'http://*.mozilla.net',
     'https://*.mozilla.net',
 )
+
+# Opbeat support
+INSTALLED_APPS.append('opbeat.contrib.django')
+
+OPBEAT = {
+    'ORGANIZATION_ID': config('OPBEAT_ORGANIZATION_ID', default=''),
+    'APP_ID': config('OPBEAT_APP_ID', default=''),
+    'SECRET_TOKEN': config('OPBEAT_SECRET_TOKEN', default=''),
+}
+
+MIDDLEWARE_CLASSES += (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
+)
