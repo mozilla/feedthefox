@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
 
 
@@ -27,3 +28,11 @@ def devices(request):
 
 def device(request):
     return render(request, 'device.html')
+
+
+def custom_404(request):
+    return HttpResponseNotFound(render(request, '404.html'))
+
+
+def custom_500(request):
+    return HttpResponseServerError(render(request, '500.html'))

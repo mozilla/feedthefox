@@ -1,5 +1,10 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import settings
+
+
+handler404 = 'feedthefox.base.views.custom_404'
+handler500 = 'feedthefox.base.views.custom_500'
 
 urlpatterns = patterns(
     '',
@@ -14,3 +19,10 @@ urlpatterns = patterns(
     url('', include('feedthefox.users.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns(
+        '',
+        url(r'^404/$', handler404),
+        url(r'^500/$', handler500),
+    )
