@@ -36,10 +36,23 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
         user = super(FeedTheFoxSocialAdapter, self).populate_user(request,
                                                                   sociallogin,
                                                                   data)
-        try:
-            mozillian = self.mozillians_client.lookup_user({'email': user.email})
-        except:
-            mozillian = None
+        emails = []
+
+        if sociallogin.account.provider == 'github':
+            for email_address in sociallogin.email_addresses:
+                email_address.user = sociallogin.user
+                if email_address.primary:
+                    sociallogin.user.email = email_address.email
+                emails.append(email_address.email)
+        else:
+            emails.append(user.email)
+
+        for email in emails:
+            try:
+                mozillian = self.mozillians_client.lookup_user({'email': email})
+                break
+            except:
+                mozillian = None
 
         if mozillian:
             user.username = mozillian['username']

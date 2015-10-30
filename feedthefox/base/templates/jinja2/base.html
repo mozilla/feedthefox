@@ -59,7 +59,7 @@
                         <a href="javascript:allauth.persona.login('', 'login')"><i class="fa fa-user"></i> Persona</a>
                       </li>
                       <li>
-                        <a href="#"><i class="fa fa-github"></i> Github</a>
+                        <a href="{{ provider_login_url('github') }}"><i class="fa fa-github"></i> Github</a>
                       </li>
                     {% endif %}
                     <form id="_persona_login" method="post" action="{{ url('persona_login') }}">
