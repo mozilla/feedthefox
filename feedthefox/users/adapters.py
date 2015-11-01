@@ -1,5 +1,3 @@
-import re
-
 from django import forms
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -8,9 +6,6 @@ from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
 from feedthefox.users.mozillians import MozilliansClient
-
-
-USERNAME_REGEX = re.compile(r'^[\W.+-]+$')
 
 
 class FeedTheFoxAdapter(DefaultAccountAdapter):
@@ -49,7 +44,7 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
 
         if mozillian:
             user.username = mozillian['username']
-            user.mozillian_url = mozillian['url']
+            user.mozillians_url = mozillian['url']
             if mozillian['full_name']['privacy'] == 'Public':
                 first_name, last_name = mozillian['full_name']['value'].split(' ', 1)
             else:
