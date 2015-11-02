@@ -9,20 +9,30 @@
 
     <div class="row">
       <div class="col-sm-3 profile-details">
-        <img src="{{ static('img/avatar.jpg') }}" alt="Full Name"
-             class="img-responsive img-circle">
-        <p>
-          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-
-        </p>
+        {% if user.photo %}
+          <img src="{{ user.photo }}"
+               alt="{{ user.get_full_name() }}" class="img-responsive img-circle">
+        {% else %}
+          <img src="{{ static(settings.DEFAULT_AVATAR) }}"
+               alt="{{ user.get_full_name() }}" class="img-responsive img-circle">
+        {% endif %}
+        {% if user.email %}
+          <p>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true">
+            </span>
+            {{ user.email }}
+          </p>
+        {% endif %}
         <p>
           <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-          <a href="#" target="_blank"></a>
+          <a href="{{ user|get_mozillian_url }}" target="_blank">{{ user.username }}</a>
         </p>
-        <p>
-          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-
-        </p>
+        {% if user.country %}
+          <p>
+            <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+            {{ user.country }}
+          </p>
+        {% endif %}
       </div>
 
       <div class="col-sm-9">
@@ -61,12 +71,16 @@
 
         <h4>Privacy</h4>
 
-        <form>
+        <form id="newsletter-form" method="post">
+          {% csrf_token %}
           <div class="form-group">
-            <input type="checkbox" name="privacy" value="1" checked>
-            I agree to receive regular emails (at least once a week) from
-            Mozilla’s Foxfooding Community Manager to provide updates on the
-            program and communicate new tasks.
+            <p>
+              {{ newsletter_form.receive_newsletter }}
+              I agree to receive regular emails (at least once a week) from
+              Mozilla’s Foxfooding Community Manager to provide updates on the
+              program and communicate new tasks.
+            </p>
+          <button type="submit" class="btn btn-default">Submit</button>
           </div>
         </form>
 

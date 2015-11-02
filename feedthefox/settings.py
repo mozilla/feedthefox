@@ -116,6 +116,9 @@ MEDIA_URL = config('MEDIA_URL', '/media/')
 USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', MEDIA_ROOT + '/uploads/profiles')
 PERSONA_AUDIENCE = config('PERSONA_AUDIENCE', default='')
 
+# Default avatar for profiles
+DEFAULT_AVATAR = 'img/avatar.jpg'
+
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=bool)
 
 TEMPLATES = [
@@ -165,6 +168,9 @@ AUTH_USER_MODEL = 'users.User'
 MOZILLIANS_API_URL = config('MOZILLIANS_API_URL', default=None)
 MOZILLIANS_API_KEY = config('MOZILLIANS_API_KEY', default=None)
 
+# Mozillians.org profile url
+MOZILLIANS_PROFILE_URL = 'https://mozillians.org/u/'
+
 # Required by allauth
 SITE_ID = 1
 
@@ -195,6 +201,8 @@ SOCIALACCOUNT_PROVIDERS = {
 PERSONA_VERIFIER_URL = 'https://verifier.login.persona.org/verify'
 PERSONA_INCLUDE_URL = 'https://login.persona.org/include.js'
 LOGIN_REDIRECT_URL = '/profile/'
+# needed by @login_required
+LOGIN_URL = '/'
 
 # Django-CSP
 CSP_DEFAULT_SRC = (

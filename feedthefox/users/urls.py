@@ -32,4 +32,5 @@ for provider in providers.registry.get_list():
 
 urlpatterns = [
     url(r'^users/', include(users_patterns)),
+    url(r'^profile/$', 'feedthefox.users.views.view_profile', name='view_profile'),
 ]

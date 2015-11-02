@@ -52,7 +52,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     {% if request.user.is_authenticated() %}
-                      <li><a href="{{ url('profile') }}"><i class="fa fa-eye"></i> Profile</a></li>
+                      <li><a href="{{ url('view_profile') }}"><i class="fa fa-eye"></i> Profile</a></li>
                       <li><a href="{{ url('account_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     {% else %}
                       <li>

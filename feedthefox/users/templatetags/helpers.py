@@ -1,3 +1,5 @@
+from django.conf import settings
+
 import jinja2
 from allauth.socialaccount.templatetags.socialaccount import (get_providers as
                                                               social_get_providers)
@@ -47,3 +49,8 @@ def providers_media_js(context):
     """
     return jinja2.Markup(u'\n'.join([provider.media_js(context['request'])
                                      for provider in providers.registry.get_list()]))
+
+
+@library.filter
+def get_mozillian_url(user):
+    return u'{0}{1}'.format(settings.MOZILLIANS_PROFILE_URL, user.username)
