@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
 
 
@@ -9,16 +10,8 @@ def profile(request):
     return render(request, 'profile.html')
 
 
-def gaia(request):
-    return render(request, 'gaia.html')
-
-
 def porting(request):
     return render(request, 'porting.html')
-
-
-def b2gdroid(request):
-    return render(request, 'b2gdroid.html')
 
 
 def devices(request):
@@ -27,3 +20,11 @@ def devices(request):
 
 def device(request):
     return render(request, 'device.html')
+
+
+def custom_404(request):
+    return HttpResponseNotFound(render(request, '404.html'))
+
+
+def custom_500(request):
+    return HttpResponseServerError(render(request, '500.html'))

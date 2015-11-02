@@ -84,13 +84,15 @@
       </header>
 
       <div class="page">
-        {% block content %}
-          {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" role="alert">
-              {{ message }}
-            </div>
-          {% endfor %}
-        {% endblock %}
+        <div class="container">
+          {% block content %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endblock %}
+        </div>
         <div class="push"></div>
       </div>
 
