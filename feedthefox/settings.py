@@ -200,6 +200,7 @@ LOGIN_REDIRECT_URL = '/profile/'
 # Django-CSP
 CSP_DEFAULT_SRC = (
     "'self'",
+    'https://*.mozilla.org',
 )
 CSP_FONT_SRC = (
     "'self'",
