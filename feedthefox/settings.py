@@ -195,7 +195,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 PERSONA_VERIFIER_URL = 'https://verifier.login.persona.org/verify'
 PERSONA_INCLUDE_URL = 'https://login.persona.org/include.js'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile/'
 
 # Django-CSP
 CSP_DEFAULT_SRC = (
