@@ -1,6 +1,4 @@
-from django import forms
 from django.conf import settings
-from django.contrib.auth import get_user_model
 
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
@@ -34,6 +32,7 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
     def populate_user(self, request, sociallogin, data):
         """Populate user with data from mozillians.org."""
 
+        mozillian_attrs = ['country', 'photo', 'ircname', 'city']
         user = super(FeedTheFoxSocialAdapter, self).populate_user(request,
                                                                   sociallogin,
                                                                   data)
@@ -44,7 +43,9 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
 
         if mozillian:
             user.username = mozillian['username']
-            user.mozillians_url = mozillian['url']
+            for attr in mozillian_attrs:
+                if mozillian[attr].get('privacy') == 'Public':
+                    setattr(user, attr, mozillian[attr].get('value'))
             if mozillian['full_name']['privacy'] == 'Public':
                 first_name, last_name = mozillian['full_name']['value'].split(' ', 1)
             else:
