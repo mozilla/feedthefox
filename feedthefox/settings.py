@@ -202,7 +202,7 @@ CSP_DEFAULT_SRC = (
     'https://*.mozilla.org',
 )
 
-CSP_DEFAULT_SRC += tuple(config('CSP_DEFAULT_SRC', default=[], cast=Csv()))
+CSP_DEFAULT_SRC += tuple(config('CSP_DEFAULT_SRC', default='', cast=Csv()))
 
 CSP_FONT_SRC = (
     "'self'",
@@ -212,7 +212,7 @@ CSP_FONT_SRC = (
     'https://*.mozilla.org',
 )
 
-CSP_FONT_SRC += tuple(config('CSP_FONT_SRC', default=[], cast=Csv()))
+CSP_FONT_SRC += tuple(config('CSP_FONT_SRC', default='', cast=Csv()))
 
 CSP_IMG_SRC = (
     "'self'",
@@ -222,14 +222,14 @@ CSP_IMG_SRC = (
     'https://*.mozilla.org',
 )
 
-CSP_IMG_SRC += tuple(config('CSP_IMG_SRC', default=[], cast=Csv()))
+CSP_IMG_SRC += tuple(config('CSP_IMG_SRC', default='', cast=Csv()))
 
 CSP_FRAME_SRC = (
     "'self'",
     'https://login.persona.org',
 )
 
-CSP_FRAME_SRC += tuple(config('CSP_FRAME_SRC', default=[], cast=Csv()))
+CSP_FRAME_SRC += tuple(config('CSP_FRAME_SRC', default='', cast=Csv()))
 
 CSP_SCRIPT_SRC = (
     "'self'",
@@ -242,7 +242,7 @@ CSP_SCRIPT_SRC = (
     'https://login.persona.org',
 )
 
-CSP_SCRIPT_SRC += tuple(config('CSP_SCRIPT_SRC', default=[], cast=Csv()))
+CSP_SCRIPT_SRC += tuple(config('CSP_SCRIPT_SRC', default='', cast=Csv()))
 
 CSP_STYLE_SRC = (
     "'self'",
@@ -253,7 +253,7 @@ CSP_STYLE_SRC = (
     'https://*.mozilla.net',
 )
 
-CSP_STYLE_SRC += tuple(config('CSP_STYLE_SRC', default=[], cast=Csv()))
+CSP_STYLE_SRC += tuple(config('CSP_STYLE_SRC', default='', cast=Csv()))
 
 # Opbeat support
 INSTALLED_APPS.append('opbeat.contrib.django')
