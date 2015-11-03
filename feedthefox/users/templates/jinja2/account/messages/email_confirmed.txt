@@ -1,1 +1,0 @@
-{% trans %}You have confirmed {{email}}.{% endtrans %}
