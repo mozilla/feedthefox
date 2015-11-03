@@ -7,12 +7,13 @@ from allauth.socialaccount import providers, views as socialaccount_views
 
 
 account_patterns = [
+    # TODO: remove signup
     url(r'^signup/?$', socialaccount_views.signup, name='socialaccount_signup'),
+    url(r'^inactive/?$', account_views.account_inactive, name='account_inactive'),
 ]
 
 
 users_patterns = [
-    url(r'^signup/?$', account_views.signup, name='account_signup'),
     url(r'^signin/?$', account_views.login, name='account_login'),
     url(r'signout/?$', account_views.logout, name='account_logout'),
     url(r'account/', include(account_patterns)),
