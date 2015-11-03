@@ -6,10 +6,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def porting(request):
-    return render(request, 'porting.html')
-
-
 def devices(request):
     return render(request, 'devices.html')
 

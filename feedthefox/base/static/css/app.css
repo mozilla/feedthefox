@@ -75,6 +75,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .wrapper {
     min-height: 100%;
     margin: 0 auto -180px;
@@ -219,6 +223,45 @@ h3 {
 
     .logo-wordmark {
         display: none;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .profile-word {
+        display: inline;
+    }
+
+    #navbar-collapse {
+        margin-top: 0px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        z-index: 1000;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0px;
+        margin: 2px 0px 0px;
+        font-size: 14px;
+        list-style: outside none none;
+        background-color: #0C99D5;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+        background-clip: padding-box;
+    }
+
+    .navbar-nav {
+        margin: 0px;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #eee;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+        color: #fff;
     }
 }
 
