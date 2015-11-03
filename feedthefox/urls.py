@@ -10,7 +10,6 @@ handler500 = 'feedthefox.base.views.custom_500'
 urlpatterns = patterns(
     '',
     url(r'^$', 'feedthefox.base.views.home', name='home'),
-    url(r'^profile/$', 'feedthefox.base.views.profile', name='profile'),
     url(r'^porting/$', 'feedthefox.base.views.porting', name='porting'),
     url(r'^devices/$', 'feedthefox.devices.views.devices', name='devices'),
     url(r'^device/$', 'feedthefox.devices.views.device', name='device'),

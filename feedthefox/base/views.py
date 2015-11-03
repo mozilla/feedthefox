@@ -6,10 +6,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def profile(request):
-    return render(request, 'profile.html')
-
-
 def porting(request):
     return render(request, 'porting.html')
 
