@@ -9,32 +9,28 @@
 
     <div class="row">
       <div class="col-sm-3">
-        <form>
+        <form action="" method="GET">
           <div class="form-group">
             <label>Manufacturer</label>
-            <select class="form-control" name="manufacturer">
-              <option value="0" selected>All</option>
-              <option value=""></option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Type</label>
-            <select class="form-control" name="type">
-              <option value="0" selected>Smartphone</option>
-            </select>
+            {{ field_with_attrs(device_filter.form.manufacturer, class="form-control") }}
           </div>
           <button type="submit" class="btn btn-default">Filter</button>
         </form>
       </div>
-      <div class="col-sm-3">
-        <a href="{{ url('device') }}" class="device-list">
-          <div>
-            <img src="" class="img-responsive">
+      <div class="col-sm-9">
+        {% for device in device_filter %}
+          <div class="col-sm-3">
+            <a href="{{ url('device') }}" class="device-list">
+              <div>
+                <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
+                     class="img-responsive" alt="{{ device.model }}">
+              </div>
+              <div>
+                <p>{{ device.comment }}</p>
+              </div>
+            </a>
           </div>
-          <div>
-            <p><strong></strong></p>
-          </div>
-        </a>
+        {% endfor %}
       </div>
     </div>
 

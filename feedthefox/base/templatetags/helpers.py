@@ -33,3 +33,12 @@ def urlparams(url_, hash=None, **query):
     new = urlparse.ParseResult(url.scheme, url.netloc, url.path, url.params,
                                query_string, fragment)
     return new.geturl()
+
+
+@library.global_function
+def field_with_attrs(bfield, **kwargs):
+    """Allows templates to dynamically add html attributes to bound
+    fields from django forms."""
+
+    bfield.field.widget.attrs.update(kwargs)
+    return bfield

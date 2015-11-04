@@ -114,7 +114,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
-USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', MEDIA_ROOT + '/uploads/profiles')
+USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', 'uploads/profiles')
 PERSONA_AUDIENCE = config('PERSONA_AUDIENCE', default='')
 USE_HTTP = config('USE_HTTP', default=DEBUG, cast=bool)
 
