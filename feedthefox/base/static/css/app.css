@@ -190,7 +190,7 @@ header {
 }
 
 .page {
-    margin: 100px 0px 30px 0px;
+    margin: 120px 0px 50px 0px;
     clear: both;
 }
 
@@ -203,16 +203,16 @@ h3 {
 }
 
 @media only screen and (max-width:992px) {
+    #tabzilla {
+        display: none;
+    }
+
     .wrapper {
         margin: 0 auto -250px;
     }
 
     .container {
         margin-top: 0px;
-    }
-
-    .profile-word {
-        display: none;
     }
 }
 
