@@ -17,6 +17,10 @@ urlpatterns = patterns(
     url(r'^b2gdroid/$', views.flatpage, {'url': '/b2gdroid/'}, name='b2gdroid'),
     url(r'^addons/$', views.flatpage, {'url': '/addons/'}, name='addons'),
     url(r'^porting/$', views.flatpage, {'url': '/porting/'}, name='porting'),
+    url(r'^foxfooding-about/$', views.flatpage, {'url': '/foxfooding-about/'},
+        name='foxfooding_about'),
+    url(r'^foxfooding-faq/$', views.flatpage, {'url': '/foxfooding-faq/'},
+        name='foxfooding_faq'),
     url('', include('feedthefox.users.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
