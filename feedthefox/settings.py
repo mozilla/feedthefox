@@ -198,7 +198,11 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
     'persona': {
-        'AUDIENCE': PERSONA_AUDIENCE
+        'AUDIENCE': PERSONA_AUDIENCE,
+        'REQUEST_PAPAMETERS': {
+            'siteName': 'Firefox OS Participation Hub',
+            'siteLogo': STATIC_URL + 'img/firefox.png'
+        }
     }
 }
 
