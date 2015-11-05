@@ -3,22 +3,18 @@
 {% block title%} - 404{% endblock %}
 
 {% block content %}
-  <div class="container">
+  <div class="row error">
+    <div class="col-md-6">
+      <h2>Page not found</h2>
 
-    <div class="row error">
-      <div class="col-md-6">
-        <h2>Page not found</h2>
+      <h1>404</h1>
 
-        <h1>404</h1>
-
-        <p>Looks like the page you're looking for was not found.</p>
-        <p>Head back <a href="{{ url('home') }}">home</a>.</p>
-      </div>
-
-      <div class="col-md-6">
-        <img class="img-responsive" src="{{ static('img/error.jpg') }}" alt="">
-      </div>
+      <p>Looks like the page you're looking for was not found.</p>
+      <p>Head back <a href="{{ url('home') }}">home</a>.</p>
     </div>
 
+    <div class="col-md-6">
+      <img class="img-responsive" src="{{ static('img/error.jpg') }}" alt="">
+    </div>
   </div>
 {% endblock %}

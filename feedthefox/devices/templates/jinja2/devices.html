@@ -3,90 +3,87 @@
 {% block title%} - Devices{% endblock %}
 
 {% block content %}
-  <div class="container">
+  <h3>Devices</h3>
 
-    <h3>Devices</h3>
-
-    <div class="row">
-      <div class="col-sm-3">
-        <form action="" method="GET">
-          <div class="form-group">
-            <label>Manufacturer</label>
-            {{ field_with_attrs(device_filter.form.manufacturer, class="form-control") }}
-          </div>
-          <button type="submit" class="btn btn-default">Filter</button>
-        </form>
-      </div>
-      <div class="col-sm-9">
-        {% for device in device_filter %}
-          <div class="col-sm-3">
-            <a href="{{ url('device') }}" class="device-list">
-              <div>
-                <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
-                     class="img-responsive" alt="{{ device.model }}">
-              </div>
-              <div>
-                <p>{{ device.comment }}</p>
-              </div>
-            </a>
-          </div>
-        {% endfor %}
-      </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <form action="" method="GET">
+        <div class="form-group">
+          <label>Manufacturer</label>
+          {{ field_with_attrs(device_filter.form.manufacturer, class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-default">Filter</button>
+      </form>
     </div>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <button class="btn btn-lg btn-default" id="device-not">Don't see your device here?</button>
-      </div>
+    <div class="col-sm-9">
+      {% for device in device_filter %}
+        <div class="col-sm-3">
+          <a href="{{ url('device') }}" class="device-list">
+            <div>
+              <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
+                   class="img-responsive" alt="{{ device.model }}">
+            </div>
+            <div>
+              <p>{{ device.comment }}</p>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
     </div>
+  </div>
 
-    <div class="row device-not-options">
-      <div class="col-sm-4 text-center">
-        <a href="{{ url('addons') }}" class="device-not-option">
-          <div>
-            <img src="{{ static('img/addons.png') }}" class="img-responsive device-not-img">
-          </div>
-          <div>
-            Add-ons
-          </div>
-          <div class="small text-muted">
-            Firefox OS 2.5 introduces support for add-ons, a feature that desktop users
-            have known and loved since the beginning of Firefox. Add-ons on Firefox OS
-            are even more powerful and can customize the whole phone experience.
-          </div>
-        </a>
-      </div>
-      <div class="col-sm-4 text-center">
-        <a href="{{ url('gaia') }}" class="device-not-option">
-          <div>
-            <img src="{{ static('img/gaia.png') }}" class="img-responsive device-not-img">
-          </div>
-          <div>
-            Gaia Development
-          </div>
-          <div class="small text-muted">
-            The focal point of Firefox OS is the user experience, and that
-            experience is a collection of Web apps called Gaia. Gaia includes
-            the core system app that implements the window manager and system UI.
-          </div>
-        </a>
-      </div>
-      <div class="col-sm-4 text-center">
-        <a href="{{ url('b2gdroid') }}" class="device-not-option">
-          <div>
-            <img src="{{ static('img/b2gdroid.png') }}" class="img-responsive device-not-img">
-          </div>
-          <div>
-            Try B2G Droid
-          </div>
-          <div class="small text-muted">
-            B2GDroid is an Android launcher that replaces the core Android
-            homescreen experience with an alternate Firefox OS experience.
-          </div>
-        </a>
-      </div>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <button class="btn btn-lg btn-default" id="device-not">Don't see your device here?</button>
+    </div>
+  </div>
+
+  <div class="row device-not-options">
+    <div class="col-sm-4 text-center">
+      <a href="{{ url('addons') }}" class="device-not-option">
+        <div>
+          <img src="{{ static('img/addons.png') }}" class="img-responsive device-not-img">
+        </div>
+        <div>
+          Add-ons
+        </div>
+        <div class="small text-muted">
+          Firefox OS 2.5 introduces support for add-ons, a feature that desktop users
+          have known and loved since the beginning of Firefox. Add-ons on Firefox OS
+          are even more powerful and can customize the whole phone experience.
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-4 text-center">
+      <a href="{{ url('gaia') }}" class="device-not-option">
+        <div>
+          <img src="{{ static('img/gaia.png') }}" class="img-responsive device-not-img">
+        </div>
+        <div>
+          Gaia Development
+        </div>
+        <div class="small text-muted">
+          The focal point of Firefox OS is the user experience, and that
+          experience is a collection of Web apps called Gaia. Gaia includes
+          the core system app that implements the window manager and system UI.
+        </div>
+      </a>
+    </div>
+    <div class="col-sm-4 text-center">
+      <a href="{{ url('b2gdroid') }}" class="device-not-option">
+        <div>
+          <img src="{{ static('img/b2gdroid.png') }}" class="img-responsive device-not-img">
+        </div>
+        <div>
+          Try B2G Droid
+        </div>
+        <div class="small text-muted">
+          B2GDroid is an Android launcher that replaces the core Android
+          homescreen experience with an alternate Firefox OS experience.
+        </div>
+      </a>
     </div>
   </div>
 {% endblock %}
