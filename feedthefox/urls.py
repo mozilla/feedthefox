@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib.flatpages import views
 
 
@@ -31,3 +32,5 @@ if settings.DEBUG:
         url(r'^404/$', handler404),
         url(r'^500/$', handler500),
     )
+
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
