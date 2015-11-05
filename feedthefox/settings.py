@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Third party apps
     'django_jinja',
+    'storages',
 
     # Django apps
     'django.contrib.admin',
@@ -111,6 +112,14 @@ STATIC_HOST = config('STATIC_HOST', default='')
 STATIC_ROOT = config('STATIC_ROOT', default=os.path.join(BASE_DIR, 'static'))
 STATIC_URL = config('STATIC_URL', STATIC_HOST + '/static/')
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = config('DEFAULT_FILE_STORAGE',
+                              default='django.core.files.storage.FileSystemStorage')
+
+if DEFAULT_FILE_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
