@@ -56,7 +56,7 @@
                   FoxFooding not enabled
                 </td>
                 <td>
-                  <a href="#" class="btn btn-danger btn-xs">Delete</a>
+                  <a href="{{ url('delete_device_info', id=device_info.id) }}" class="btn btn-danger btn-xs">Delete</a>
                 </td>
               </tr>
             {% endfor %}
