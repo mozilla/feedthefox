@@ -20,6 +20,7 @@ class Build(models.Model):
     name = models.CharField(max_length=120)
     date = models.DateField(auto_now_add=True)
     link = models.URLField(blank=True, default='')
+    is_foxfooding = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
