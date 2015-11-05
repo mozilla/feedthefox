@@ -33,34 +33,36 @@
 
     <div class="col-sm-9">
       <h4>FoxFooding</h4>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th colspan="4">Your devices</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-
-            </td>
-            <td class="profile-imei hidden-sm hidden-xs" title="Your IMEI number is visible only to you">
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-
-            </td>
-            <td>
-              <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-              FoxFooding not enabled
-            </td>
-            <td>
-              <a href="#" class="btn btn-danger btn-xs">Delete</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
+      {% if user.devices_info.exists() %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="4">Your devices</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for device_info in user.devices_info.all() %}
+              <tr>
+                <td>
+                  <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                  {{ device_info.device.model }}
+                </td>
+                <td class="profile-imei hidden-sm hidden-xs" title="Your IMEI number is visible only to you">
+                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                  {{ device_info.imei }}
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                  FoxFooding not enabled
+                </td>
+                <td>
+                  <a href="#" class="btn btn-danger btn-xs">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
       <button class="btn btn-default" data-toggle="modal" data-target="#DeviceModal">Add device</button>
 
       <hr>
@@ -76,7 +78,7 @@
             Mozilla’s Foxfooding Community Manager to provide updates on the
             program and communicate new tasks.
           </p>
-        <button type="submit" class="btn btn-default">Save</button>
+        <button type="submit" name="{{ newsletter_form.prefix }}" class="btn btn-default">Save</button>
         </div>
       </form>
 
@@ -93,27 +95,28 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="DeviceModalLabel">Add device</h4>
       </div>
-      <div class="modal-body">
-        <form>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="modal-body">
+          <label>Device</label>
           <div class="form-group">
-            <select class="form-control" name="device">
-              <option value="0" selected>Select a device you own</option>
-              <option value=""></option>
-            </select>
+            {{ field_with_attrs(device_info_form.device, class='form-control') }}
+            {{ device_info_form.device.errors }}
           </div>
           <div class="form-group">
             <label>IMEI</label>
-            <input id="imei-input" type="text" maxlength="15" class="form-control">
+            {{ field_with_attrs(device_info_form.imei, class='form-control') }}
+            {{ device_info_form.imei.errors }}
           </div>
           <div class="form-group imei-tos">
-
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" name="{{ device_info_form.prefix }}"
+                  class="btn btn-primary">Save</button>
+        </div>
+      </form>
     </div>
   </div>
 {% endblock %}

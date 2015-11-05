@@ -7,4 +7,8 @@ jQuery(document).ready(function ($) {
         var term = t.val();
         (term !== '' ? $(target).show() : $(target).hide());
     });
+
+    if ($('#DeviceModal .errorlist').length > 0) {
+        $('#DeviceModal').modal('show');
+    }
 });
