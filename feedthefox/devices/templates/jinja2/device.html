@@ -1,28 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3></h3>
+  <h3>{{ device.model }}</h3>
 
   <div class="row">
     <div class="col-md-4 col-sm-5">
-      <img src="" class="img-responsive">
+      <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
+           class="img-responsive" alt="{{ device.model }}">
     </div>
     <div class="col-md-5 col-sm-7 device-body">
-      <p></p>
+      <p>{{ device.manufacturer }} - {{ device.model }}</p>
       <p>
         <div class="device-specs device-specs-first">
           <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          {{ device.comment }}
         </div>
-        <div class="device-specs"></div>
-        <div class="device-specs"></div>
-        <div class="device-specs"></div>
       </p>
       <p>
-        <a href="#" class="btn btn-primary btn-lg device-doc">
+        <a href="{{ device.link }}" class="btn btn-primary btn-lg device-doc">
           <img src="" class="img-responsive mdn">
           Documentation
         </a>
       </p>
+    </div>
+    <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-5">
+      <a href="#" class="btn btn-default btn-lg device-builds">
+        <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
+        <p>{{ device.model }}</p>
+        <p>{{ device.comment }}</p>
+      </a>
     </div>
     <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-5">
       <a href="#" class="btn btn-default btn-lg device-builds">

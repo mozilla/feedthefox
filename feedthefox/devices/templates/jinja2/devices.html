@@ -18,7 +18,8 @@
     <div class="col-sm-9">
       {% for device in device_filter %}
         <div class="col-sm-3">
-          <a href="{{ url('device') }}" class="device-list">
+          <a href="{{ url('device', manufacturer=device.manufacturer, model=device.model) }}"
+             class="device-list">
             <div>
               <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
                    class="img-responsive" alt="{{ device.model }}">

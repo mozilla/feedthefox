@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 import django_filters
 
@@ -27,5 +27,11 @@ def devices(request):
     return render(request, 'devices.html', {'device_filter': f})
 
 
-def device(request):
-    return render(request, 'device.html')
+def device(request, manufacturer, model):
+    device = get_object_or_404(Device, manufacturer=manufacturer, model=model)
+    builds = device.builds.all()
+    ctx = {
+        'device': device,
+        'builds': builds
+    }
+    return render(request, 'device.html', ctx)
