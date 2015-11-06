@@ -1,41 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>{{ device.model }}</h3>
+  <h3>{{ device.manufacturer }} - {{ device.model }}</h3>
 
   <div class="row">
-    <div class="col-md-4 col-sm-5">
-      <img src="{% if device.image %} {{ device.image.url }} {% endif %}"
-           class="img-responsive" alt="{{ device.model }}">
+    <div class="col-md-3 col-sm-4">
+      {% if device.image %}
+        <img src="{{ device.image.url }}" alt="{{ device.model }}" class="device-img">
+      {% else %}
+        <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}" alt="{{ device.model }}" class="device-img">
+      {% endif %}
     </div>
-    <div class="col-md-5 col-sm-7 device-body">
-      <p>{{ device.manufacturer }} - {{ device.model }}</p>
+    <div class="col-md-6 col-sm-8 device-body">
       <p>
-        <div class="device-specs device-specs-first">
-          <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-          {{ device.comment }}
-        </div>
+        {{ device.comment }}
       </p>
-      <p>
-        <a href="{{ device.link }}" class="btn btn-primary btn-lg device-doc">
-          <img src="" class="img-responsive mdn">
+      {% if device.link %}
+        <a href="{{ device.link }}" class="btn btn-default btn-lg device-doc">
+          <img src="{{ static('img/mdn.svg') }}" class="img-responsive mdn">
           Documentation
         </a>
-      </p>
+      {% endif %}
     </div>
-    <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-5">
-      <a href="#" class="btn btn-default btn-lg device-builds">
-        <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
-        <p>{{ device.model }}</p>
-        <p>{{ device.comment }}</p>
-      </a>
-    </div>
-    <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-5">
-      <a href="#" class="btn btn-default btn-lg device-builds">
-        <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
-        <br>
-        Build
-      </a>
+    <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-4">
+      {% if device.builds.all() %}
+        {% for build in device.builds.all() %}
+          <a href="{{ build.link }}" class="btn btn-success btn-lg device-builds">
+            <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
+            <p>{{ build.name }}</p>
+            <p class="small">{{ build.comment }}</p>
+          </a>
+        {% endfor %}
+      {% else %}
+        No builds yet for this device.
+      {% endif %}
     </div>
   </div>
 {% endblock %}
