@@ -151,10 +151,14 @@ header {
 }
 
 .logo-wordmark {
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 1.1em;
     color: #eee;
     display: inline-block;
+}
+
+.logo-wordmark-home {
+    margin-top: 25px;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -203,10 +207,6 @@ h3 {
 }
 
 @media only screen and (max-width:992px) {
-    #tabzilla {
-        display: none;
-    }
-
     .wrapper {
         margin: 0 auto -250px;
     }
@@ -220,13 +220,19 @@ h3 {
     .wrapper {
         margin: 0 auto -270px;
     }
+}
 
+@media only screen and (max-width:359px) {
     .logo-wordmark {
         display: none;
     }
 }
 
 @media only screen and (max-width:767px) {
+    #tabzilla {
+        display: none;
+    }
+
     .profile-word {
         display: inline;
     }
@@ -322,7 +328,7 @@ h3 {
 .home-ctas-img {
     max-width: 100px;
     float: left;
-    margin-right: 7px;
+    margin-right: 15px;
 }
 
 .home-ctas {
@@ -468,6 +474,16 @@ a.device-not-option:focus {
 
 /* Dashboard
 ==================== */
+
+.dashboard-title {
+    display: inline-block;
+}
+
+.fa-info-circle {
+    vertical-align: text-top;
+    cursor: default;
+    margin-left: 5px;
+}
 
 .report {
     text-align: right;

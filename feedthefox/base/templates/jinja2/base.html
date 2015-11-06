@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ LANG }}" dir="{{ DIR }}">
   <head>
-    <title>Firefox OS Contribution Hub{% block title %}{% endblock %}</title>
+    <title>Firefox OS Participation Hub{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="theme-color" content="#0C99D5">
     <link rel="shortcut icon" href="//mozorg.cdn.mozilla.net/media/img/firefox/favicon.dc6635050bf5.ico">
-    <link rel="stylesheet" type="text/css" href="{{ static('css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ static('css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ static('css/tabzilla.css') }}" media="screen" />
-    <link rel="stylesheet" type="text/css" href="{{ static('css/app.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ static('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ static('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ static('css/tabzilla.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ static('css/app.css') }}">
     {% block css %}{% endblock %}
   </head>
   <body>
@@ -30,7 +31,9 @@
               <div class="navbar-brand">
                 <a href="{{ url('home') }}">
                   <i class="fxfamilynav-logo hidden-sm">Firefox</i>
-                  <span class="logo-wordmark">{% block navbar_wordmark %}Firefox OS {% endblock %}Contribution Hub</span>
+                  <span class="logo-wordmark {% block home_wordmark %}{% endblock %}">
+                    {% block navbar_wordmark %}Firefox OS<br>{% endblock %}Participation Hub
+                  </span>
                 </a>
               </div>
             </div>
@@ -41,7 +44,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                       aria-haspopup="true" aria-expanded="false">
-                    Hack
+                    Contribute
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('porting') }}">Porting Guide</a></li>
@@ -53,7 +56,7 @@
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                       aria-haspopup="true" aria-expanded="false">
-                    Foxfooding
+                    Foxfood
                   </a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('foxfooding_about') }}">About</a></li>
