@@ -121,16 +121,24 @@ requests==2.7.0
 
 # sha256: rVC-9UD-VRikZTw4IEUqiBtqBCyw-Lt2V8SRxr02VLs
 Pillow==3.0.0
+
 # sha256: R_NHKksF6A24fEqYrFz2XLd8owE3uXB98SCzb3XUIWA
 opbeat==3.1.3
+
 # sha256: fRdUe2UhbMXG-8BK7lUIjM1ZF8B3UwTZb3AXwmx4nNc
 # sha256: AMxHk1r7vYMmD90oOwqnkOZY0qcZIgSfbkZ9yooSRTc
 django-filter==0.11.0
+
 # sha256: dYSYx38W4muLYa8m-NDbsRm3E_LY0WZoHsiSMR81IMQ
 # sha256: 2Qg_keId-FDIE7ODWNyD3xbX8lMYChNE7P7c4kIT7PI
 boto==2.38.0
+
 # sha256: _wJ-aRgCVL1agT3hdg-n5zJBiwPfodOdO_j9hvF1r2U
 # sha256: 3gT6WE26Z7tSel6olB0v9HEoXLD5d8hjRP8oJ8OZgeI
 django-storages-redux==1.3
+
 # sha256: TEiNy4TP_Yi80rFlGWK3Z_m7JFIGQHyOpngEPNOdPKg
 django-multidb-router==0.6
+
+# sha256: P2EZ-utByjC0EUd40Ro4ttQAsC0AN7XtTp_KgBZD0rQ
+python-stdnum==1.2

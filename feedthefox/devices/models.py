@@ -3,7 +3,10 @@ import uuid
 
 from django.db import models
 from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.utils.encoding import python_2_unicode_compatible
+
+from stdnum import imei
 
 
 DEFAULT_DEVICE_TYPE = 'smartphone'
@@ -11,6 +14,12 @@ DEFAULT_DEVICE_TYPE = 'smartphone'
 
 def _get_upload_file_name(instance, filename):
     return os.path.join(settings.USER_PHOTOS_DIR, str(uuid.uuid4()) + '.jpg')
+
+
+def validate_imei(imei_number):
+    if not imei.is_valid(imei_number):
+        raise ValidationError('Please enter a valid IMEI number.')
+    return imei_number
 
 
 @python_2_unicode_compatible
@@ -55,7 +64,8 @@ class DeviceInfo(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='devices_info')
     device = models.ForeignKey(Device)
-    imei = models.CharField(max_length=17, blank=True, default='')
+    imei = models.CharField(max_length=17, blank=True, default='',
+                            validators=[validate_imei])
 
     def __str__(self):
         return u'{0} {1}'.format(self.user, self.device)
