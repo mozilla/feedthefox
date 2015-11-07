@@ -2,7 +2,9 @@ from django.conf import settings
 
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
+from allauth.socialaccount.models import EmailAddress
 
+from feedthefox.users.models import User
 from feedthefox.users.mozillians import MozilliansClient
 
 
@@ -69,3 +71,13 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
         else:
             user.is_active = False
         return user
+
+    def pre_social_login(self, request, sociallogin):
+        email = sociallogin.user.email
+        try:
+            user = User.objects.get(email=email)
+            sociallogin.connect(request, user)
+        except User.DoesNotExist:
+            query = EmailAddress.objects.filter(email=email)
+            if query.exists():
+                sociallogin.connect(request, query[0].user)
