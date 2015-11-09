@@ -13,6 +13,8 @@ urlpatterns = patterns(
     url(r'^$', 'feedthefox.base.views.home', name='home'),
     url(r'^devices/$', 'feedthefox.devices.views.devices', name='devices'),
     url(r'^device/$', 'feedthefox.devices.views.device', name='device'),
+    url(r'^device-info/(?P<id>\d+)/delete$', 'feedthefox.users.views.delete_device_info',
+        name='delete_device_info'),
     url(r'^dashboard/$', 'feedthefox.dashboard.views.dashboard', name='dashboard'),
     url(r'^gaia/$', views.flatpage, {'url': '/gaia/'}, name='gaia'),
     url(r'^b2gdroid/$', views.flatpage, {'url': '/b2gdroid/'}, name='b2gdroid'),
