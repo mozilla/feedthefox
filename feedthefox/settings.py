@@ -8,6 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+import json
 import os
 
 import dj_database_url
@@ -88,12 +89,18 @@ WSGI_APPLICATION = 'feedthefox.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': config(
-        'DATABASE_URL',
-        cast=dj_database_url.parse
+DATABASES = config(
+    'DATABASES',
+    cast=json.loads,
+    default=json.dumps(
+        {
+            'default': config('DATABASE_URL', cast=dj_database_url.parse)
+        }
     )
-}
+)
+
+SLAVE_DATABASES = config('SLAVE_DATABASES', cast=Csv(), default=',')
+DATABASE_ROUTERS = ('multidb.PinningMasterSlaveRouter',)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
