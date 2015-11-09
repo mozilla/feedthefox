@@ -380,16 +380,17 @@ a.device-list:hover {
     padding: 10px;
 }
 
-.device-body > p {
-    margin-bottom: 20px;
-}
-.device-specs {
-    color: #333;
-    padding-left: 18px;
+.device-body {
+    margin-top: -5px;
 }
 
-.device-specs-first {
-    padding-left: 0px;
+.device-body > p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.device-img {
+    max-width: 200px;
 }
 
 .device-not-options {
@@ -425,17 +426,19 @@ a.device-not-option:focus {
 .mdn {
     max-width: 40px;
     display: inline-block;
+    margin-bottom: 5px;
 }
 
 .device-builds {
     display: block;
     margin-bottom: 20px;
+    white-space: normal;
 }
 
 .device-builds > span {
     float: left;
     font-size: 2.5em;
-    margin-right: 7px;
+    margin-right: 2px;
 }
 
 .device-builds > img {
@@ -451,6 +454,20 @@ a.device-not-option:focus {
 
     .device-builds {
         max-width: 220px;
+    }
+
+    .device-list {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .device-doc {
+        margin-bottom: 20px;
+    }
+
+    .device-body > p {
+        margin: 20px 0px;
     }
 }
 

@@ -130,6 +130,9 @@ USE_HTTP = config('USE_HTTP', default=DEBUG, cast=bool)
 # Default avatar for profiles
 DEFAULT_AVATAR = 'img/avatar.jpg'
 
+# Default images for devices
+DEFAULT_DEVICE_IMG = 'img/device.png'
+
 SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=bool)
 
 TEMPLATES = [
