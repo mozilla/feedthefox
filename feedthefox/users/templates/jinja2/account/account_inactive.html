@@ -5,5 +5,8 @@
 {% block content %}
   <h1>{{ _("Account Inactive") }}</h1>
 
-  <p>{{ _("This account is inactive.") }}</p>
+  <p class="text-danger">
+    This account is inactive. Please make sure that you have an acount in
+    <a href="https://mozillians.org" target="_blank">mozillians.org</a>.
+  </p>
 {% endblock %}
