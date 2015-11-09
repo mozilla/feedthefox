@@ -3,13 +3,15 @@ import importlib
 from django.conf.urls import include, url
 
 from allauth.account import views as account_views
-from allauth.socialaccount import providers
+from allauth.socialaccount import providers, views as socialaccount_views
 
 from feedthefox.users import views
 
 
 account_patterns = [
     url(r'^inactive/?$', account_views.account_inactive, name='account_inactive'),
+    url(r'^signin/cancelled/?$', socialaccount_views.login_cancelled,
+        name='socialaccount_login_cancelled'),
 ]
 
 

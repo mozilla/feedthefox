@@ -4,7 +4,12 @@
 
 {% block content %}
 
-  <h1>{{ _("Login Cancelled") }}</h1>
-  <p>{% trans login_url=url('account_login') %}You decided to cancel logging in to our site using one of your existing accounts. If this was a mistake, please proceed to <a href="{{login_url}}">sign in</a>.{% endtrans %}</p>
+  <h2>{{ _("Login Cancelled") }}</h2>
+  <p>
+    {% trans home_url=url('home') %}
+      You decided to cancel logging in to our site using one of your existing accounts.
+      If this was a mistake, please try to login <a href="{{ home_url }}">here</a>.
+    {% endtrans %}
+  </p>
 
 {% endblock %}
