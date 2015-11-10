@@ -21,7 +21,7 @@
       {% endif %}
       <p>
         <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-        <a href="{{ user|get_mozillian_url }}" target="_blank">{{ user.username }}</a>
+        <a href="{{ user|get_mozillian_url }}" target="_blank">{{ user.mozillian_username }}</a>
       </p>
       {% if user.country %}
         <p>
