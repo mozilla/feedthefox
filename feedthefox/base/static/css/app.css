@@ -146,7 +146,7 @@ header {
 .navbar-collapse,
 .navbar-toggle {
     margin-top: 15px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     background-color: transparent;
 }
 
@@ -213,6 +213,10 @@ h3 {
 
     .container {
         margin-top: 0px;
+    }
+
+    .navbar-collapse {
+        font-size: 1.1em;
     }
 }
 
@@ -536,6 +540,10 @@ a.device-not-option:focus {
 
 .bug-summary {
     cursor: pointer;
+}
+
+.dashboard-info {
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width:992px) {
