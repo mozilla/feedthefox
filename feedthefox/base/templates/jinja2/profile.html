@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-sm-9">
-      <h4>FoxFooding</h4>
+      <h4>Foxfooding</h4>
       {% if user.devices_info.exists() %}
         <table class="table">
           <thead>
@@ -53,7 +53,7 @@
                 </td>
                 <td>
                   <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                  FoxFooding not enabled
+                  Foxfooding not enabled
                 </td>
                 <td>
                   <a href="{{ url('delete_device_info', id=device_info.id) }}" class="btn btn-danger btn-xs">Delete</a>
