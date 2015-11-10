@@ -25,11 +25,15 @@
     <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-4">
       {% if device.builds.all() %}
         {% for build in device.builds.all() %}
-          <a href="{{ build.link }}" class="btn btn-success btn-lg device-builds">
-            <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
-            <p>{{ build.name }}</p>
-            <p class="small">{{ build.comment }}</p>
-          </a>
+          <button href="{{ build.link }}" class="btn btn-success btn-lg device-builds" data-toggle="modal" data-target="#BuildModal">
+            <div class="download-img">
+              <i class="fa fa-cloud-download"></i>
+            </div>
+            <div class="download-text">
+              <p class="build-name">{{ build.name }}</p>
+              <p class="small">{{ build.comment }}</p>
+            </div>
+          </button>
         {% endfor %}
       {% else %}
         No builds yet for this device.
