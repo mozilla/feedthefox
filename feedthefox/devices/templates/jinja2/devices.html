@@ -23,10 +23,10 @@
             <div>
               {% if device.image %}
                 <img src="{{ device.image.url }}"
-                     class="img-responsive" alt="{{ device.model }}">
+                     class="img-responsive device-img" alt="{{ device.model }}">
               {% else %}
               <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}"
-                   class="img-responsive" alt="{{ device.model }}">
+                   class="img-responsive device-img" alt="{{ device.model }}">
               {% endif %}
             </div>
             <div>

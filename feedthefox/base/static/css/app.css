@@ -388,6 +388,11 @@ a.device-list {
     display: block;
 }
 
+.device-img {
+    max-width: 145px;
+    max-height: 145px;
+}
+
 a.device-list:hover {
     text-decoration: none;
     border-radius: 4px;
