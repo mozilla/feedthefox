@@ -65,12 +65,18 @@
       {% endif %}
       <button class="btn btn-default" data-toggle="modal" data-target="#DeviceModal">Add device</button>
 
-      <hr>
-
-      <h4>Privacy</h4>
-
       <form id="newsletter-form" method="post">
         {% csrf_token %}
+        <hr>
+        <div class="form-group">
+          <p>
+            {{ newsletter_form.foxfooding_interest }}
+            Check this box if you're interested in participating in the Foxfooding program and
+            want to get notified by email once a foxfooding build is available for your device
+          </p>
+        </div>
+        <hr>
+        <h4>Privacy</h4>
         <div class="form-group">
           <p>
             {{ newsletter_form.receive_newsletter }}
@@ -78,10 +84,9 @@
             Mozilla’s Foxfooding Community Manager to provide updates on the
             program and communicate new tasks.
           </p>
-        <button type="submit" name="{{ newsletter_form.prefix }}" class="btn btn-default">Save</button>
         </div>
+        <input type="hidden" name="newsletter">
       </form>
-
     </div>
   </div>
 
