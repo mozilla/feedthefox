@@ -37,7 +37,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th colspan="4">Your devices</th>
+              <th colspan="3">Your devices</th>
             </tr>
           </thead>
           <tbody>
@@ -45,17 +45,15 @@
               <tr>
                 <td>
                   <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-                  {{ device_info.device.model }}
+                  <a href="{{ url('device', manufacturer=device_info.device.manufacturer, model=device_info.device.model) }}">{{ device_info.device }}</a>
                 </td>
                 <td class="profile-imei hidden-sm hidden-xs" title="Your IMEI number is visible only to you">
-                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                  {{ device_info.imei }}
+                  {% if device_info.imei %}
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    {{ device_info.imei }}
+                  {% endif %}
                 </td>
-                <td>
-                  <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                  Foxfooding not enabled
-                </td>
-                <td>
+                <td class="pull-right">
                   <a href="{{ url('delete_device_info', id=device_info.id) }}" class="btn btn-danger btn-xs">Delete</a>
                 </td>
               </tr>
