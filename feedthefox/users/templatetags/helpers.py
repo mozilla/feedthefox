@@ -53,4 +53,4 @@ def providers_media_js(context):
 
 @library.filter
 def get_mozillian_url(user):
-    return u'{0}{1}'.format(settings.MOZILLIANS_PROFILE_URL, user.username)
+    return u'{0}{1}'.format(settings.MOZILLIANS_PROFILE_URL, user.mozillian_username)
