@@ -51,7 +51,7 @@ class Device(models.Model):
     link = models.URLField(blank=True, default='')
 
     def __str__(self):
-        return u'{0} {1}'.format(self.model, self.manufacturer)
+        return u'{0} - {1}'.format(self.manufacturer, self.model)
 
     class Meta:
         ordering = ('manufacturer', 'model',)
