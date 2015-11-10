@@ -195,6 +195,9 @@ MOZILLIANS_PROFILE_URL = 'https://mozillians.org/u/'
 # Required by allauth
 SITE_ID = 1
 
+# TOS document
+TOS_DOC = config('TOS_DOC', default=None)
+
 # Django-allauth configuration
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'

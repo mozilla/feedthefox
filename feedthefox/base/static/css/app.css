@@ -206,6 +206,15 @@ h3 {
     margin: auto;
 }
 
+.tos-text {
+    font-size: 1.1em;
+}
+
+.tos-rules {
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
 @media only screen and (max-width:992px) {
     .wrapper {
         margin: 0 auto -250px;
