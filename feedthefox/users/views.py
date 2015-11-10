@@ -19,7 +19,7 @@ def view_profile(request):
         device_info.user = request.user
         device_info.save()
         return redirect('view_profile')
-    elif newsletter_form.is_valid():
+    elif 'newsletter' in request.POST and newsletter_form.is_valid():
         newsletter_form.save()
         return redirect('view_profile')
 

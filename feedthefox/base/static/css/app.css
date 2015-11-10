@@ -110,6 +110,12 @@ hr {
     font-size: 1.2em;
 }
 
+.errorlist {
+    color: #a94442;
+    list-style: none;
+    padding-left: 0px;
+}
+
 .fxfamilynav-logo {
     float: left;
     width: 140px;
@@ -204,6 +210,15 @@ h3 {
 
 .img-responsive {
     margin: auto;
+}
+
+.tos-text {
+    font-size: 1.1em;
+}
+
+.tos-rules {
+    font-size: 0.9em;
+    margin-top: 10px;
 }
 
 @media only screen and (max-width:992px) {
@@ -385,7 +400,7 @@ a.device-list:hover {
 }
 
 .device-body {
-    margin-top: -5px;
+    margin-top: -3px;
 }
 
 .device-body > p {
@@ -436,19 +451,33 @@ a.device-not-option:focus {
 .device-builds {
     display: block;
     margin-bottom: 20px;
-    white-space: normal;
+    min-width: 200px;
+    max-width: 200px;
+    text-align: left;
 }
 
-.device-builds > span {
-    float: left;
-    font-size: 2.5em;
-    margin-right: 2px;
+.build-name {
+    font-weight: bold;
+    text-align: center;
 }
 
-.device-builds > img {
-    float: left;
-    margin-right: 7px;
-    max-width: 2.5em;
+.download-img,
+.download-text {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.download-text > .small {
+    max-width: 132px;
+    white-space: initial;
+    font-size: 70%;
+    text-align: center;
+}
+
+.download-img > .fa {
+    font-size: 1.5em;
 }
 
 @media only screen and (max-width:992px) {
@@ -457,6 +486,7 @@ a.device-not-option:focus {
     }
 
     .device-builds {
+        min-width: 220px;
         max-width: 220px;
     }
 
@@ -589,13 +619,13 @@ footer > .row {
 @media only screen and (max-width:992px) {
     footer,
     .push {
-        height: 250px;
+        height: 270px;
     }
 }
 
 @media only screen and (max-width:460px) {
     footer,
     .push {
-        height: 270px;
+        height: 280px;
     }
 }

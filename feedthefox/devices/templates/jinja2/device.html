@@ -25,15 +25,81 @@
     <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-4">
       {% if device.builds.all() %}
         {% for build in device.builds.all() %}
-          <a href="{{ build.link }}" class="btn btn-success btn-lg device-builds">
-            <span class="glyphicon glyphicon-download img-responsive" aria-hidden="true"></span>
-            <p>{{ build.name }}</p>
-            <p class="small">{{ build.comment }}</p>
-          </a>
+          <button data-build="{{ build.link }}" class="btn btn-success btn-lg device-builds" data-toggle="modal" data-target="#BuildModal">
+            <div class="download-img">
+              <i class="fa fa-cloud-download"></i>
+            </div>
+            <div class="download-text">
+              <p class="build-name">{{ build.name }}</p>
+              <p class="small">{{ build.comment }}</p>
+            </div>
+          </button>
         {% endfor %}
       {% else %}
         No builds yet for this device.
       {% endif %}
     </div>
   </div>
+
+  <!-- Device Modal -->
+  <div class="modal fade" id="BuildModal" tabindex="-1" role="dialog" aria-labelledby="BuildModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="BuildModalLabel">Firefox OS Foxfooding Program Terms &amp; Conditions</h4>
+        </div>
+        <div class="modal-body">
+          <div class="tos-text">
+            By downloading a foxfooding build, I certify and acknowledge to Mozilla (i.e.,
+            Mozilla Foundation or Mozilla Corporation, including any applicable local affiliate)
+            that:
+          </div>
+          <div class="tos-rules">
+            <ul>
+              <li>
+                I have read, understood, and will abide by the
+                <a href="{{ settings.TOS_DOC }}" target="_blank">Terms and Conditions</a>
+                for the Foxfooding Program, including that Mozilla will collect and use information
+                about me and my Foxfooding Device as described in the Program Terms and Conditions,
+                as long as I participate in the Program;
+              </li>
+              <li>
+                I am providing this information and acknowledgment as part of my application and
+                request to Mozilla to participate in the Firefox OS Foxfooding Program via a Mozilla
+                Foxfooding Device;
+              </li>
+              <li>
+                I am at least 18 years of age;
+              </li>
+              <li>
+                My answers and information that I submit to Mozilla with respect to the use of my
+                Foxfooding Device and during the Foxfooding Program are and will be true and accurate
+                to the best of my knowledge;
+              </li>
+              <li>
+                I agree and consent to ongoing e-mail communication from Mozilla regarding my
+                participation in the Foxfooding Program (questions may be directed to
+                <a href="mailto:foxfood-central@mozilla.com">foxfood-central@mozilla.com</a>); and
+              </li>
+              <li>
+                Mozilla reserves the right to change, modify or cancel the Foxfooding Program or its
+                Terms and Conditions, in whole or in part, at any time.
+              </li>
+            </ul>
+          </div>
+
+          <div class="text-center">
+            <a href="#" id="build-link" class="btn btn-success">
+              <i class="fa fa-cloud-download"></i> Download
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block js %}
+  <script src="{{ static('js/device.js') }}"></script>
 {% endblock %}
