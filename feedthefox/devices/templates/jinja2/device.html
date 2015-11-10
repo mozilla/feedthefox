@@ -24,7 +24,11 @@
     <div class="col-md-3 col-md-offset-0 col-sm-8 col-sm-offset-4">
       {% if device.builds.all() %}
         {% for build in device.builds.all() %}
-          <button data-build="{{ build.link }}" class="btn btn-success btn-lg device-builds" data-toggle="modal" data-target="#BuildModal">
+          {% if build.is_foxfooding %}
+            <button data-build="{{ build.link }}" class="btn btn-success btn-lg device-builds" data-toggle="modal" data-target="#BuildModal">
+          {% else %}
+            <a href="{{ build.link }}" target="_blank" class="btn btn-success btn-lg device-builds">
+          {% endif %}
             <div class="download-img">
               <i class="fa fa-cloud-download"></i>
             </div>
@@ -32,7 +36,11 @@
               <p class="build-name">{{ build.name }}</p>
               <p class="small">{{ build.comment }}</p>
             </div>
-          </button>
+          {% if build.is_foxfooding %}
+            </button>
+          {% else %}
+            </a>
+          {% endif %}
         {% endfor %}
       {% else %}
         No builds yet for this device.
