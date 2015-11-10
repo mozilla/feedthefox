@@ -1,6 +1,7 @@
 from django.conf import settings
 
 from allauth.account.adapter import DefaultAccountAdapter
+from allauth.account.utils import setup_user_email
 from allauth.socialaccount.helpers import _login_social_account
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from allauth.socialaccount.models import EmailAddress
@@ -76,6 +77,25 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
     def pre_social_login(self, request, sociallogin):
         email = sociallogin.user.email
 
-        if (User.objects.filter(email=email).exists() or
-                EmailAddress.objects.filter(email=email).exists()):
-            _login_social_account(request, sociallogin)
+        try:
+            user = User.objects.get(email=email)
+        except User.DoesNotExist:
+            user = None
+
+        emails_query = EmailAddress.objects.filter(email=email)
+        if not user and emails_query.exists():
+            user = emails_query[0].user
+
+        if user:
+            sociallogin.user = user
+            if sociallogin.is_existing:
+                # Social Account already connected, signin please
+                _login_social_account(request, sociallogin)
+            else:
+                sociallogin.account.user = user
+                sociallogin.account.save()
+                if sociallogin.token:
+                    sociallogin.token.account = sociallogin.account
+                    sociallogin.token.save()
+                if not EmailAddress.objects.filter(user=user).exists():
+                    setup_user_email(request, user, sociallogin.email_addresses)
