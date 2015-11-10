@@ -110,6 +110,12 @@ hr {
     font-size: 1.2em;
 }
 
+.errorlist {
+    color: #a94442;
+    list-style: none;
+    padding-left: 0px;
+}
+
 .fxfamilynav-logo {
     float: left;
     width: 140px;

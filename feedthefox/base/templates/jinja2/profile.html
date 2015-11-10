@@ -93,16 +93,16 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="DeviceModalLabel">Add device</h4>
         </div>
-        <form action="" method="POST">
+        <form method="POST" id="device-form">
           {% csrf_token %}
           <div class="modal-body">
-            <label>Device</label>
-            <div class="form-group">
+            <div class="form-group {% if device_info_form.device.errors %}has-error{% endif %}">
+              <label class="control-label">Device</label>
               {{ field_with_attrs(device_info_form.device, class='form-control') }}
               {{ device_info_form.device.errors }}
             </div>
-            <div class="form-group">
-              <label>IMEI</label>
+            <div class="form-group {% if device_info_form.imei.errors %}has-error{% endif %}">
+              <label class="control-label">IMEI</label>
               {{ field_with_attrs(device_info_form.imei, class='form-control') }}
               {{ device_info_form.imei.errors }}
             </div>
