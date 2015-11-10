@@ -59,7 +59,6 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
                 mozillian = None
 
         if mozillian:
-            user.username = mozillian['username']
             user.mozillian_username = mozillian['username']
             for attr in mozillian_attrs:
                 if mozillian[attr].get('privacy') == 'Public':

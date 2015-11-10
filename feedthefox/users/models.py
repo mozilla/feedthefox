@@ -1,6 +1,13 @@
+import base64
+import hashlib
+
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.encoding import python_2_unicode_compatible
+try:
+    from django.utils.encoding import smart_bytes
+except ImportError:
+    from django.utils.encoding import smart_str as smart_bytes
 
 
 @python_2_unicode_compatible
@@ -22,6 +29,8 @@ class User(AbstractUser):
         unique_together = ('email',)
 
     def save(self, *args, **kwargs):
-        if not self.pk and User.objects.filter(username=self.username).exists():
-            self.username = u'{0} - {1}'.format(self.username, self.email)
+        if not self.pk:
+            self.username = base64.urlsafe_b64encode(hashlib.sha1(
+                smart_bytes(self.email)).digest()
+            ).rstrip(b'=')
         super(User, self).save()
