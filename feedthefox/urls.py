@@ -21,6 +21,7 @@ urlpatterns = patterns(
     url(r'^b2gdroid/$', views.flatpage, {'url': '/b2gdroid/'}, name='b2gdroid'),
     url(r'^addons/$', views.flatpage, {'url': '/addons/'}, name='addons'),
     url(r'^porting/$', views.flatpage, {'url': '/porting/'}, name='porting'),
+    url(r'^fxos-tv/$', views.flatpage, {'url': '/fxos-tv/'}, name='fxos-tv'),
     url(r'^connect/$', views.flatpage, {'url': '/connect/'}, name='connect'),
     url(r'^foxfooding-about/$', views.flatpage, {'url': '/foxfooding-about/'},
         name='foxfooding_about'),
