@@ -298,6 +298,9 @@ OPBEAT = {
     'SECRET_TOKEN': config('OPBEAT_SECRET_TOKEN', default=''),
 }
 
+# Google Analytics
+GA_CODE = config('GA_CODE', default='')
+
 MIDDLEWARE_CLASSES += (
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
 )
