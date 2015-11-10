@@ -16,3 +16,11 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.get_full_name()
+
+    class Meta(object):
+        unique_together = ('email',)
+
+    def save(self, *args, **kwargs):
+        if not self.pk and User.objects.filter(username=self.username).exists():
+            self.username = u'{0} - {1}'.format(self.username, self.email)
+        super(User, self).save()
