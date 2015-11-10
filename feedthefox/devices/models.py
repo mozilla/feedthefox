@@ -17,7 +17,7 @@ def _get_upload_file_name(instance, filename):
 
 
 def validate_imei(imei_number):
-    if not imei.is_valid(imei_number):
+    if imei_number.strip() and not imei.is_valid(imei_number):
         raise ValidationError('Please enter a valid IMEI number.')
     return imei_number
 
