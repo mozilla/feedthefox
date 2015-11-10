@@ -8,7 +8,7 @@ class ReceiveNewsLetterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['receive_newsletter']
+        fields = ['receive_newsletter', 'foxfooding_interest']
 
 
 class UserDeviceInfoForm(forms.ModelForm):

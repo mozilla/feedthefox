@@ -11,4 +11,9 @@ jQuery(document).ready(function ($) {
     if ($('#DeviceModal .errorlist').length > 0) {
         $('#DeviceModal').modal('show');
     }
+
+    $('#newsletter-form :checkbox').change(function(){
+        $('#newsletter-form').submit();
+    });
+
 });
