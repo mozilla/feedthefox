@@ -382,6 +382,10 @@ a.device-list {
     max-height: 145px;
 }
 
+.device-full-img {
+    max-height: 300px;
+}
+
 a.device-list:hover {
     text-decoration: none;
     border-radius: 4px;
@@ -503,8 +507,10 @@ a.device-not-option:focus {
 /* Profile/Settings
 ==================== */
 
-.profile-details img {
-    padding-bottom: 20px;
+.profile-details > p {
+    margin-top: 10px;
+}
+.profile-details > img {
     margin: inherit;
 }
 

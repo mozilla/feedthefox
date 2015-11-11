@@ -6,9 +6,9 @@
   <div class="row">
     <div class="col-md-3 col-sm-4">
       {% if device.image %}
-        <img src="{{ device.image.url }}" alt="{{ device.model }}" class="device-img">
+        <img src="{{ device.image.url }}" alt="{{ device.model }}" class="img-responsive device-full-img">
       {% else %}
-        <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}" alt="{{ device.model }}" class="device-img">
+        <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}" alt="{{ device.model }}" class="img-responsive device-full-img">
       {% endif %}
     </div>
     <div class="col-md-6 col-sm-8 device-body">
