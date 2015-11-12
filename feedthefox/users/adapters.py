@@ -64,7 +64,12 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
                 if mozillian[attr].get('privacy') == 'Public':
                     setattr(user, attr, mozillian[attr].get('value'))
             if mozillian['full_name']['privacy'] == 'Public':
-                first_name, last_name = mozillian['full_name']['value'].split(' ', 1)
+                full_name = mozillian['full_name']['value'].split(' ', 1)
+                try:
+                    first_name, last_name = full_name
+                except ValueError:
+                    first_name = full_name[0]
+                    last_name = ''
             else:
                 first_name = 'Anonymous'
                 last_name = 'Mozillian'
