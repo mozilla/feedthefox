@@ -1,15 +1,6 @@
-{% extends "base.html" %}
+{% extends "flatpage.html" %}
 
-{% block title%} - {{ flatpage.title }}{% endblock %}
-
-{% block content %}
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="{{ static('img/gaia.png') }}" alt="Gaia Development"
-           class="img-responsive img-circle">
-    </div>
-    <div class="col-sm-9">
-      {{ flatpage.content }}
-    </div>
-  </div>
+{% block flatpage_image %}
+  <img src="{{ static('img/gaia.png') }}" alt="Smart TV"
+       class="img-responsive">
 {% endblock %}

@@ -17,18 +17,20 @@ urlpatterns = patterns(
     url(r'^device-info/(?P<id>\d+)/delete$', 'feedthefox.users.views.delete_device_info',
         name='delete_device_info'),
     url(r'^dashboard/$', 'feedthefox.dashboard.views.dashboard', name='dashboard'),
-    url(r'^gaia/$', views.flatpage, {'url': '/gaia/'}, name='gaia'),
-    url(r'^b2gdroid/$', views.flatpage, {'url': '/b2gdroid/'}, name='b2gdroid'),
-    url(r'^addons/$', views.flatpage, {'url': '/addons/'}, name='addons'),
-    url(r'^porting/$', views.flatpage, {'url': '/porting/'}, name='porting'),
-    url(r'^fxos-tv/$', views.flatpage, {'url': '/fxos-tv/'}, name='fxos-tv'),
-    url(r'^connect/$', views.flatpage, {'url': '/connect/'}, name='connect'),
     url(r'^foxfooding-about/$', views.flatpage, {'url': '/foxfooding-about/'},
         name='foxfooding_about'),
     url(r'^foxfooding-faq/$', views.flatpage, {'url': '/foxfooding-faq/'},
         name='foxfooding_faq'),
     url('', include('feedthefox.users.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    # Contribute flatpages
+    url(r'^gaia/$', views.flatpage, {'url': '/gaia/'}, name='gaia'),
+    url(r'^b2gdroid/$', views.flatpage, {'url': '/b2gdroid/'}, name='b2gdroid'),
+    url(r'^addons/$', views.flatpage, {'url': '/addons/'}, name='addons'),
+    url(r'^porting/$', views.flatpage, {'url': '/porting/'}, name='porting'),
+    url(r'^fxos-tv/$', views.flatpage, {'url': '/fxos-tv/'}, name='fxos-tv'),
+    url(r'^connect/$', views.flatpage, {'url': '/connect/'}, name='connect'),
 )
 
 if settings.DEBUG:

@@ -70,7 +70,7 @@ body {
     margin: 0;
     background-color: #eee;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
     font-family: 'Open Sans', sans-serif;
 }
@@ -201,6 +201,20 @@ h3 {
     margin-top: 10px;
 }
 
+.contribute-flatpages > h3 {
+    margin-bottom: 10px;
+}
+
+.contribute-flatpages > ul {
+    margin: 0 0 20px -40px;
+}
+
+.contribute-flatpages > ul > li {
+    list-style: none;
+    margin: 0 0 .5em;
+    padding: 0;
+}
+
 @media only screen and (max-width:992px) {
     .wrapper {
         margin: 0 auto -250px;
@@ -208,16 +222,16 @@ h3 {
 
     .container {
         margin-top: 0px;
-    }
-}
-
-@media only screen and (max-width:992px) {
-    .container {
         width: auto;
     }
 
     .profile-word {
         display: none;
+    }
+
+    .navbar-collapse,
+    .navbar-toggle {
+        font-size: 1em;
     }
 }
 
@@ -618,13 +632,13 @@ footer > .row {
 @media only screen and (max-width:992px) {
     footer,
     .push {
-        height: 270px;
+        height: 290px;
     }
 }
 
 @media only screen and (max-width:460px) {
     footer,
     .push {
-        height: 280px;
+        height: 310px;
     }
 }
