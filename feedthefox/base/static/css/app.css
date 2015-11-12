@@ -116,17 +116,6 @@ hr {
     padding-left: 0px;
 }
 
-.fxfamilynav-logo {
-    float: left;
-    width: 140px;
-    height: 145px;
-    margin: 5px 20px 0px 0px;
-    background-image: url('/static/img/firefox.png');
-    text-indent: 120%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
 .container {
     max-width: 960px;
 }
@@ -156,15 +145,13 @@ header {
     background-color: transparent;
 }
 
-.logo-wordmark {
-    margin-top: 15px;
-    font-size: 1.1em;
-    color: #eee;
-    display: inline-block;
+.nav-logo {
+    width: 200px;
+    margin-top: 14px;
 }
 
-.logo-wordmark-home {
-    margin-top: 25px;
+.navbar-toggle {
+    margin-top: 22px;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -229,10 +216,6 @@ h3 {
     .container {
         margin-top: 0px;
     }
-
-    .navbar-collapse {
-        font-size: 1em;
-    }
 }
 
 @media only screen and (max-width:460px) {
@@ -248,10 +231,6 @@ h3 {
 }
 
 @media only screen and (max-width:767px) {
-    #tabzilla {
-        display: none;
-    }
-
     .profile-word {
         display: inline;
     }
@@ -287,6 +266,12 @@ h3 {
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
         color: #fff;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    #tabzilla {
+        display: none;
     }
 }
 
@@ -334,6 +319,10 @@ h3 {
 
 .action {
     margin: 20px 30px 30px 10px;
+}
+
+.action:first-child {
+    margin-top: 50px;
 }
 
 .homescreen-img {
@@ -391,6 +380,10 @@ a.device-list {
 .device-img {
     max-width: 145px;
     max-height: 145px;
+}
+
+.device-full-img {
+    max-height: 300px;
 }
 
 a.device-list:hover {
@@ -514,8 +507,10 @@ a.device-not-option:focus {
 /* Profile/Settings
 ==================== */
 
-.profile-details img {
-    padding-bottom: 20px;
+.profile-details > p {
+    margin-top: 10px;
+}
+.profile-details > img {
     margin: inherit;
 }
 
