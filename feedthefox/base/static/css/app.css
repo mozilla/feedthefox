@@ -179,13 +179,6 @@ header {
     background-color: #0C99D5;
 }
 
-.navbar-sticky .fxfamilynav-logo {
-    width: 60px;
-    height: 62px;
-    margin: 5px 10px 0px 0px;
-    background-image: url('/static/img/firefox-s.png');
-}
-
 .page {
     margin: 120px 0px 50px 0px;
     clear: both;
