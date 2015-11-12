@@ -255,6 +255,8 @@ CSP_FONT_SRC += tuple(config('CSP_FONT_SRC', default='', cast=Csv()))
 
 CSP_IMG_SRC = (
     "'self'",
+    'https://mozillians.org',
+    'https://mozillians.allizom.org',
     'http://*.mozilla.net',
     'https://*.mozilla.net',
     'http://*.mozilla.org',
