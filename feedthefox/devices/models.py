@@ -66,6 +66,7 @@ class DeviceInfo(models.Model):
     device = models.ForeignKey(Device)
     imei = models.CharField(max_length=17, blank=True, default='',
                             validators=[validate_imei])
+    is_foxfooding = models.BooleanField(default=False)
 
     def __str__(self):
         return u'{0} {1}'.format(self.user, self.device)
