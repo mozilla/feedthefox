@@ -70,3 +70,6 @@ class DeviceInfo(models.Model):
 
     def __str__(self):
         return u'{0} {1}'.format(self.user, self.device)
+
+    class Meta:
+        verbose_name_plural = 'Devices Info'

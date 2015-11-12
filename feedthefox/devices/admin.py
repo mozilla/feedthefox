@@ -3,14 +3,18 @@ from django.contrib import admin
 from feedthefox.devices.models import Build, Device, DeviceInfo
 
 
-class DeviceInfoInline(admin.TabularInline):
-    model = DeviceInfo
-    extra = 1
+@admin.register(DeviceInfo)
+class DeviceInfoAdmin(admin.ModelAdmin):
+    list_display = ('get_mozillian_username', 'device', 'imei',)
+
+    def get_mozillian_username(self, obj):
+        return obj.user.mozillian_username
+    get_mozillian_username.short_description = 'Mozillian Username'
+    get_mozillian_username.admin_order_field = 'user__first_name'
 
 
 @admin.register(Device)
 class DeviceAdmin(admin.ModelAdmin):
-    inlines = (DeviceInfoInline,)
     list_display = ('model', 'manufacturer',)
 
 
