@@ -86,6 +86,8 @@ ROOT_URLCONF = 'feedthefox.urls'
 
 WSGI_APPLICATION = 'feedthefox.wsgi.application'
 
+# Expire session in 7 days
+SESSION_COOKIE_AGE = 604800
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
