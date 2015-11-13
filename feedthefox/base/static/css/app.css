@@ -211,14 +211,12 @@ h3 {
     }
 }
 
-@media only screen and (max-width:460px) {
-    .wrapper {
-        margin: 0 auto -270px;
+@media only screen and (max-width:992px) {
+    .container {
+        width: auto;
     }
-}
 
-@media only screen and (max-width:359px) {
-    .logo-wordmark {
+    .profile-word {
         display: none;
     }
 }
@@ -260,11 +258,19 @@ h3 {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
         color: #fff;
     }
-}
 
-@media only screen and (max-width:992px) {
     #tabzilla {
         display: none;
+    }
+
+    .profile-word {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width:460px) {
+    .wrapper {
+        margin: 0 auto -270px;
     }
 }
 
