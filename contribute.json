@@ -1,0 +1,27 @@
+{
+    "name": "feedthefox",
+    "description": "Firefox OS Participation Hub",
+    "participate": {
+        "irc": "irc://irc.mozilla.org/#partinfra"
+    },
+    "repository": {
+        "url": "https://github.com/mozilla/feedthefox",
+        "license": "MPL2"
+    },
+    "bugs": {
+        "list": "https://github.com/mozilla/feedthefox/issues",
+        "report": "https://github.com/mozilla/feedthefox/issues/new"
+    },
+    "urls": {
+        "dev": "https://feedthefox-dev.pass.mozilla.community",
+        "prod": "https://firefoxos.mozilla.community"
+    },
+    "keywords": [
+        "django",
+        "python",
+        "docker",
+        "html",
+        "css",
+        "javascript"
+    ]
+}
