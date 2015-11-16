@@ -5,8 +5,23 @@
 {% block content %}
   <div class="row">
     <div class="col-sm-3">
-      <img src="{{ static('img/foxfooding.png') }}" alt="Foxfooding"
-           class="img-responsive">
+      {% block flatpage_image %}
+        <img src="{{ static('img/foxfooding.png') }}" alt="Foxfooding"
+             class="img-responsive">
+      {% endblock %}
+      {% block contribute_flatpages %}
+        <div class="contribute-flatpages">
+          <h3>Contribute</h3>
+          <ul>
+            <li><a href="{{ url('porting') }}">Porting Guide</a></li>
+            <li><a href="{{ url('gaia') }}">Gaia Development</a></li>
+            <li><a href="{{ url('fxos-tv') }}">Firefox OS Smart TV</a></li>
+            <li><a href="{{ url('addons') }}">Add-ons</a></li>
+            <li><a href="{{ url('b2gdroid') }}">Firefox OS on Android</a></li>
+            <li><a href="{{ url('connect') }}">Connect</a></li>
+          </ul>
+        </div>
+      {% endblock %}
     </div>
     <div class="col-sm-9">
       {{ flatpage.content }}
