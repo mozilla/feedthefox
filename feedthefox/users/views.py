@@ -1,9 +1,22 @@
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from feedthefox.devices.models import DeviceInfo
+from feedthefox.devices.models import DeviceInfo, validate_imei
 from feedthefox.users import forms
+
+
+def imei(request, imei):
+    if request.is_ajax():
+        response_data = {}
+        try:
+            validate_imei(imei)
+            response_data['status'] = True
+        except:
+            response_data['status'] = False
+        return JsonResponse(response_data)
+    else:
+        raise Http404
 
 
 @login_required

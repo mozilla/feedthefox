@@ -106,7 +106,8 @@
             </div>
             <div class="form-group {% if device_info_form.imei.errors %}has-error{% endif %}">
               <label class="control-label">IMEI</label>
-              {{ field_with_attrs(device_info_form.imei, class='form-control') }}
+              {{ field_with_attrs(device_info_form.imei, class='form-control', autocomplete='off') }}
+              <i class="fa imei-status"></i>
               {{ device_info_form.imei.errors }}
             </div>
             <div class="form-group imei-tos">
@@ -152,7 +153,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="submit" name="{{ device_info_form.prefix }}"
-                    class="btn btn-primary">Save</button>
+                    class="btn btn-primary" id="imei-submit">Save</button>
           </div>
         </form>
       </div>

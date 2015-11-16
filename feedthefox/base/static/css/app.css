@@ -535,6 +535,21 @@ a.device-not-option:focus {
     display: none;
 }
 
+.imei-status {
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+    display: none;
+}
+
+.form-group > .fa-times {
+    color: #a94442;
+}
+
+.form-group > .fa-check {
+    color: #3c763d;
+}
+
 
 /* Dashboard
 ==================== */
