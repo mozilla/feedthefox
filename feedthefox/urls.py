@@ -28,6 +28,7 @@ urlpatterns = patterns(
     url(r'^foxfooding-faq/$', views.flatpage, {'url': '/foxfooding-faq/'},
         name='foxfooding_faq'),
     url('', include('feedthefox.users.urls')),
+    url('', include('feedthefox.base.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

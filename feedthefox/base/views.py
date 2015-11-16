@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
+from django.views.static import serve
 
 
 def home(request):
@@ -20,3 +22,8 @@ def custom_404(request):
 
 def custom_500(request):
     return HttpResponseServerError(render(request, '500.html'))
+
+
+def contribute_view(request):
+    """Serve a contribute.json file."""
+    return serve(request, 'contribute.json', document_root=settings.BASE_DIR)
