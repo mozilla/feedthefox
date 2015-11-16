@@ -16,6 +16,9 @@ def populate_user_data(user, sociallogin, mozillian_profile=None):
     mozillian_attrs = ['country', 'photo', 'ircname', 'city']
 
     if mozillian_profile:
+        # Used to activate inactive accounts
+        sociallogin.account.extra_data['mozillian_profile'] = True
+
         user.mozillian_username = mozillian_profile['username']
         for attr in mozillian_attrs:
             if mozillian_profile[attr].get('privacy') == 'Public':
@@ -117,6 +120,21 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             user = None
+
+        if user and not user.is_active:
+            social_emails = [addr.email for addr in sociallogin.email_addresses]
+            existing_emails_q = EmailAddress.objects.filter(email__in=social_emails,
+                                                            user__is_active=True)
+            if (existing_emails_q.exists() and
+                    all(addr.user != user for addr in existing_emails_q)):
+                (EmailAddress.objects.filter(email__in=social_emails)
+                                     .exclude(id__in=existing_emails_q)
+                                     .update(user=existing_emails_q[0].user))
+                user.delete()
+                user = existing_emails_q[0].user
+            elif sociallogin.account.extra_data.get('mozillian_profile'):
+                user.is_active = True
+                user.save()
 
         emails_query = EmailAddress.objects.filter(email=email)
         if not user and emails_query.exists():
