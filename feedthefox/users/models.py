@@ -14,10 +14,10 @@ except ImportError:
 class User(AbstractUser):
     """Basic Mozillian user profile."""
 
-    ircname = models.CharField(max_length=50, default='', blank=True)
+    ircname = models.CharField(max_length=63, default='', blank=True)
     photo = models.URLField(max_length=400, default='', blank=True)
-    city = models.CharField(max_length=50, default='', blank=True)
-    country = models.CharField(max_length=50, default='', blank=True)
+    city = models.CharField(max_length=120, default='', blank=True)
+    country = models.CharField(max_length=120, default='', blank=True)
     receive_newsletter = models.BooleanField(default=True)
     foxfooding_interest = models.BooleanField(default=False)
     mozillian_username = models.CharField(max_length=254, default='', blank=True)
