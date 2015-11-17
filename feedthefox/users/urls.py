@@ -3,7 +3,9 @@ import importlib
 from django.conf.urls import include, url
 
 from allauth.account import views as account_views
-from allauth.socialaccount import providers, views as socialaccount_views
+from allauth.socialaccount import providers
+
+from feedthefox.users import views
 
 
 account_patterns = [
@@ -31,6 +33,8 @@ for provider in providers.registry.get_list():
 
 urlpatterns = [
     url(r'^users/', include(users_patterns)),
-    url(r'^profile/$', 'feedthefox.users.views.view_profile', name='view_profile'),
-    url(r'^imei/(?P<imei>\d+)$', 'feedthefox.users.views.imei', name='imei'),
+    url(r'^profile/$', views.view_profile, name='view_profile'),
+    url(r'^imei/(?P<imei>\d+)$', views.imei, name='imei'),
+    url(r'^device-info/(?P<id>\d+)/delete$', views.delete_device_info,
+        name='delete_device_info')
 ]
