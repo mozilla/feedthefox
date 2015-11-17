@@ -6,12 +6,14 @@ jQuery(document).ready(function ($) {
         modal.find('#build-link').attr('href', recipient);
     });
 
-    $('a.device-builds, #build-link').click(function() {
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'FxOS Builds',
-            eventAction: 'click'
+    if (!_dntEnabled()) {
+        $('a.device-builds, #build-link').click(function() {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'FxOS Builds',
+                eventAction: 'click'
+            });
         });
-    });
+    }
 
 });
