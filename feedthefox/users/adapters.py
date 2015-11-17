@@ -121,8 +121,8 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
         except User.DoesNotExist:
             user = None
 
+        social_emails = [addr.email for addr in sociallogin.email_addresses]
         if user and not user.is_active:
-            social_emails = [addr.email for addr in sociallogin.email_addresses]
             existing_emails_q = EmailAddress.objects.filter(email__in=social_emails,
                                                             user__is_active=True)
             if (existing_emails_q.exists() and
@@ -141,7 +141,12 @@ class FeedTheFoxSocialAdapter(DefaultSocialAccountAdapter):
             user = emails_query[0].user
 
         if user:
-            # If this is a new social account, connect it please
+            # Sync with mozillians.org on each login
+            mozillian = get_mozillian_profile(social_emails)
+            if mozillian:
+                user = populate_user_data(user, sociallogin, mozillian)
+                user.save()
+
             sociallogin.user = user
 
             # Add additional emails, if any
