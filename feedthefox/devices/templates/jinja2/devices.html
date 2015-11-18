@@ -16,23 +16,27 @@
       </form>
     </div>
     <div class="col-sm-9">
-      {% for device in device_filter %}
-        <div class="col-sm-4">
-          <a href="{{ url('device', manufacturer=device.manufacturer, model=device.model) }}"
-             class="device-list">
-            <div>
-              {% if device.image %}
-                <img src="{{ device.image.url }}"
-                     class="img-responsive device-img" alt="{{ device.model }}">
-              {% else %}
-              <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}"
-                   class="img-responsive device-img" alt="{{ device.model }}">
-              {% endif %}
+      {% for devices in device_filter|batch(3) %}
+        <div class="row">
+          {% for device in devices %}
+            <div class="col-sm-4">
+              <a href="{{ url('device', manufacturer=device.manufacturer, model=device.model) }}"
+                 class="device-list">
+                <div>
+                  {% if device.image %}
+                    <img src="{{ device.image.url }}"
+                         class="img-responsive device-img" alt="{{ device.model }}">
+                  {% else %}
+                    <img src="{{ static(settings.DEFAULT_DEVICE_IMG) }}"
+                         class="img-responsive device-img" alt="{{ device.model }}">
+                  {% endif %}
+                </div>
+                <div>
+                  <p>{{ device }}</p>
+                </div>
+              </a>
             </div>
-            <div>
-              <p>{{ device }}</p>
-            </div>
-          </a>
+          {% endfor %}
         </div>
       {% endfor %}
     </div>
