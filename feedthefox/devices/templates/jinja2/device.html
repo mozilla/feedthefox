@@ -15,6 +15,11 @@
       <p>
         {{ device.comment }}
       </p>
+      {% if device.codename %}
+        <div class="codename" title="codename">
+          <label class="label label-info">code name:</label> {{ device.codename }}
+        </div>
+      {% endif %}
       {% if device.link %}
         <a href="{{ device.link }}" class="btn btn-default device-doc">
           Documentation

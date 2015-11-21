@@ -491,6 +491,15 @@ a.device-not-option:focus {
     font-size: 1.5em;
 }
 
+.codename {
+    font-size: 0.8em;
+    margin-bottom: 20px;
+}
+
+.codename > .label {
+    margin-right: 3px;
+}
+
 @media only screen and (max-width:992px) {
     .device-doc {
         min-width: 220px;
