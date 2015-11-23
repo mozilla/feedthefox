@@ -110,6 +110,11 @@ hr {
     font-size: 1.2em;
 }
 
+.btn-primary {
+    background-color: #0C99D5;
+    border-color: #008CC8;
+}
+
 .errorlist {
     color: #a94442;
     list-style: none;
