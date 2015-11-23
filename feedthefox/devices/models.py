@@ -49,6 +49,7 @@ class Device(models.Model):
                                    through='DeviceInfo', blank=True)
     type = models.CharField(max_length=120, default=DEFAULT_DEVICE_TYPE)
     link = models.URLField(blank=True, default='')
+    codename = models.CharField(max_length=120, blank=True, default='')
 
     def __str__(self):
         return u'{0} - {1}'.format(self.manufacturer, self.model)
