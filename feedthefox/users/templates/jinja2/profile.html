@@ -37,7 +37,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th colspan="3">Your devices</th>
+              <th colspan="2">Your devices</th>
             </tr>
           </thead>
           <tbody>
@@ -46,12 +46,6 @@
                 <td>
                   <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
                   <a href="{{ url('device', manufacturer=device_info.device.manufacturer, model=device_info.device.model) }}">{{ device_info.device }}</a>
-                </td>
-                <td class="profile-imei hidden-sm hidden-xs" title="Your IMEI number is visible only to you">
-                  {% if device_info.imei %}
-                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                    {{ device_info.imei }}
-                  {% endif %}
                 </td>
                 <td class="pull-right">
                   <a href="{{ url('delete_device_info', id=device_info.id) }}" class="btn btn-danger btn-xs">Delete</a>
@@ -103,51 +97,6 @@
               <label class="control-label">Device</label>
               {{ field_with_attrs(device_info_form.device, class='form-control') }}
               {{ device_info_form.device.errors }}
-            </div>
-            <div class="form-group {% if device_info_form.imei.errors %}has-error{% endif %}">
-              <label class="control-label">IMEI</label>
-              {{ field_with_attrs(device_info_form.imei, class='form-control', autocomplete='off') }}
-              <i class="fa imei-status"></i>
-              {{ device_info_form.imei.errors }}
-            </div>
-            <div class="form-group imei-tos">
-              <div class="tos-text">
-                By providing my device IMEI, I certify and acknowledge to Mozilla (i.e., Mozilla
-                Foundation or Mozilla Corporation, including any applicable local affiliate) that:
-              </div>
-              <div class="tos-rules">
-                <ul>
-                  <li>
-                    I have read, understood, and will abide by the
-                    <a href="{{ settings.TOS_DOC }}" target="_blank">Terms and Conditions</a>
-                    for the Foxfooding Program, including that Mozilla will collect and use
-                    information about me and my Foxfooding Device as described in the Program Terms
-                    and Conditions, as long as I participate in the Program;
-                  </li>
-                  <li>
-                    I am providing this information and acknowledgment as part of my application and
-                    request to Mozilla to participate in the Firefox OS Foxfooding Program via a
-                    Mozilla Foxfooding Device;
-                  </li>
-                  <li>
-                    I am at least 18 years of age;
-                  </li>
-                  <li>
-                    My answers and information that I submit to Mozilla with respect to the use of my
-                    Foxfooding Device and during the Foxfooding Program are and will be true and
-                    accurate to the best of my knowledge;
-                  </li>
-                  <li>
-                    I agree and consent to ongoing e-mail communication from Mozilla regarding my
-                    participation in the Foxfooding Program (questions may be directed to
-                    <a href="mailto:foxfood-central@mozilla.com">foxfood-central@mozilla.com</a>); and
-                  </li>
-                  <li>
-                    Mozilla reserves the right to change, modify or cancel the Foxfooding Program or
-                    its Terms and Conditions, in whole or in part, at any time.
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
           <div class="modal-footer">
