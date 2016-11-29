@@ -7,9 +7,10 @@ peep==2.4.1
 # sha256: zpqSSG7aW_PZ5Ah_gCSSsVtxsGuJTWgM-Wb1wnlD5TI
 # sha256: m7S7kSEJqteivOjiKGp9mgnrzKrv5Br4VYZrZgcVkGA
 peepin==0.11
+
 # sha256: 2tXaDNfzzKfaOsQqGau6MPXMEPrkl25HQFHnCFtOldE
-# sha256: Eo6L3BHGnqkPd4Q104EmRT078oPb0ozxWjOqjlIkXfQ
-Django==1.8.13
+# sha256: zDqVGHeIYn39yUtB3pCKrfxCQfq7POrvGfS9O4nA_fc
+Django==1.8.16
 
 # sha256: 8uJz7TSsu1YJYtXPEpF5NtjfAil98JvTCJuFRtRYQTg
 # sha256: ygF2j97N4TQwHzFwdDIm9g7f9cOTXxJDc3jr2RFQY1M
@@ -118,7 +119,7 @@ oauthlib==1.0.3
 # sha256: OYo9ttYYmdJf1KBsbKEgUbDOFx1wXezX7VURUXtLuT0
 requests==2.7.0
 
-# sha256: rVC-9UD-VRikZTw4IEUqiBtqBCyw-Lt2V8SRxr02VLs
+# sha256: ACT85XhUej2pJXmhY7rgmx2fC6882OSok9xsEeTmJLs
 Pillow==3.0.0
 
 # sha256: R_NHKksF6A24fEqYrFz2XLd8owE3uXB98SCzb3XUIWA

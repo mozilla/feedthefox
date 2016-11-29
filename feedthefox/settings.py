@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.persona',
     'feedthefox.users.providers.github'
 ]
 
@@ -134,7 +133,6 @@ if DEFAULT_FILE_STORAGE == 'storages.backends.s3boto.S3BotoStorage':
 MEDIA_ROOT = config('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 MEDIA_URL = config('MEDIA_URL', '/media/')
 USER_PHOTOS_DIR = config('USER_PHOTOS_DIR', 'uploads/profiles')
-PERSONA_AUDIENCE = config('PERSONA_AUDIENCE', default='')
 USE_HTTP = config('USE_HTTP', default=DEBUG, cast=bool)
 
 # Default avatar for profiles
@@ -221,18 +219,6 @@ SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_QUERY_EMAIL = True
-SOCIALACCOUNT_PROVIDERS = {
-    'persona': {
-        'AUDIENCE': PERSONA_AUDIENCE,
-        'REQUEST_PAPAMETERS': {
-            'siteName': 'Firefox OS Participation Hub',
-            'siteLogo': STATIC_URL + 'img/firefox.png'
-        }
-    }
-}
-
-PERSONA_VERIFIER_URL = 'https://verifier.login.persona.org/verify'
-PERSONA_INCLUDE_URL = 'https://login.persona.org/include.js'
 LOGIN_REDIRECT_URL = '/profile/'
 # needed by @login_required
 LOGIN_URL = '/'
@@ -269,7 +255,6 @@ CSP_IMG_SRC += tuple(config('CSP_IMG_SRC', default='', cast=Csv()))
 
 CSP_FRAME_SRC = (
     "'self'",
-    'https://login.persona.org',
 )
 
 CSP_FRAME_SRC += tuple(config('CSP_FRAME_SRC', default='', cast=Csv()))
@@ -282,7 +267,6 @@ CSP_SCRIPT_SRC = (
     'https://*.mozilla.org',
     'http://*.mozilla.net',
     'https://*.mozilla.net',
-    'https://login.persona.org',
 )
 
 CSP_SCRIPT_SRC += tuple(config('CSP_SCRIPT_SRC', default='', cast=Csv()))

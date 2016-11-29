@@ -81,18 +81,9 @@
                       <li><a href="{{ url('account_logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
                     {% else %}
                       <li>
-                        <a href="javascript:allauth.persona.login('', 'login')"><i class="fa fa-user"></i> Persona</a>
-                      </li>
-                      <li>
                         <a href="{{ provider_login_url('github') }}"><i class="fa fa-github"></i> Github</a>
                       </li>
                     {% endif %}
-                    <form id="_persona_login" method="post" action="{{ url('persona_login') }}">
-                      {% csrf_token %}
-                      <input type="hidden" name="next" value="" id="_persona_next_url"/>
-                      <input type="hidden" name="process" value="" id="_persona_process"/>
-                      <input type="hidden" name="assertion" id="_persona_assertion"/>
-                    </form>
                   </ul>
                 </li>
               </ul>
@@ -159,8 +150,6 @@
 
     <script src="{{ static('js/jquery-2.1.1.min.js') }}"></script>
     <script src="{{ static('js/bootstrap.min.js') }}"></script>
-    <script src="https://login.persona.org/include.js"></script>
-    <script src="{{ static('js/auth.js') }}"></script>
     <script src="{{ static('js/app.js') }}"></script>
     {% block js %}{% endblock %}
   </body>
